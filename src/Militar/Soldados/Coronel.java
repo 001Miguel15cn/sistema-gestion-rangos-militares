@@ -8,6 +8,7 @@ public class Coronel extends Soldado implements OperacionesMilitares {
     public Coronel(String nombre, String id) {
         super(nombre, id);
         this.estrategia = "Estrategia de ataque coordinado";
+        setRango("Coronel");
     }
 
     @Override
@@ -25,4 +26,16 @@ public class Coronel extends Soldado implements OperacionesMilitares {
     public void reportarEstado() {
         System.out.println("El Coronel " + getNombre() + " reporta que las operaciones van según lo planeado.");
     }
+
+    @Override
+    public String toString() {
+        return "Coronel [estrategia=" + estrategia + "]";
+    }
+
+    
+
+
 }
+
+
+

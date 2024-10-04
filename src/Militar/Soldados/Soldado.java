@@ -28,4 +28,12 @@ public abstract class Soldado {
 
     // Método abstracto para que las clases hijas lo implementen
     public abstract void realizarAccion();
+
+    @Override
+    public String toString() {
+        return "Soldado [nombre=" + nombre + ", id=" + id + ", rango=" + rango + "]";
+    }
+
+    
+
 }

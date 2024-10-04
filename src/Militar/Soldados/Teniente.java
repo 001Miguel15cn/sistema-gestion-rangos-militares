@@ -4,6 +4,7 @@ public class Teniente extends Soldado {
 
     public Teniente(String nombre, String id) {
         super(nombre, id); // Llamada explícita al constructor de Soldado
+        setRango("Teniente");
     }
 
     @Override

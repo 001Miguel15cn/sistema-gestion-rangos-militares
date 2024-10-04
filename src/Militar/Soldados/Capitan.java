@@ -7,8 +7,12 @@ public class Capitan extends Soldado implements OperacionesMilitares {
 
     public Capitan(String nombre, String id) {
         super(nombre, id);
+        //un capitan por defecto tiene 50 soldados bajo su mando
         this.soldadosBajoMando = 50;
+        setRango("Capitan");
     }
+
+    
 
     @Override
     public void realizarAccion() {
@@ -26,4 +30,27 @@ public class Capitan extends Soldado implements OperacionesMilitares {
     public void reportarEstado() {
         System.out.println("El Capitán " + getNombre() + " reporta el estado de sus tropas.");
     }
+
+
+    //get de soldadosbajomano
+    public int getSoldadosBajoMando() {
+        return soldadosBajoMando;
+    }
+
+
+    //set de soldadosbajomano
+    public void setSoldadosBajoMando(int soldadosBajoMando) {
+        this.soldadosBajoMando = soldadosBajoMando;
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "Capitan [soldadosBajoMando=" + soldadosBajoMando + "]";
+    }
+
+
+
+    
 }
