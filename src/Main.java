@@ -15,6 +15,7 @@ public class Main {
      */
     public static void main(String[] args) {
         //soldados por defecto del el ArrayList
+        //hola
         SoldadoRaso soldado1 = new SoldadoRaso("Juan", "S001");
         SoldadoRaso soldado2 = new SoldadoRaso("robeto", "S004");
         SoldadoRaso soldado3 = new SoldadoRaso("albaro", "S005");
