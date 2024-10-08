@@ -27,7 +27,7 @@ public abstract class Soldado {
     }
 
     // Método abstracto para que las clases hijas lo implementen
-    public abstract void realizarAccion();
+    public abstract void mostrarInformacion();
 
     @Override
     public String toString() {

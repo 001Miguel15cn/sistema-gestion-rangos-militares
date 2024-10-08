@@ -5,10 +5,12 @@ import Operaciones.OperacionesMilitares;
 
 public class SoldadoRaso extends Soldado implements OperacionesMilitares{
     SoldadoRaso_rango rango = new SoldadoRaso_rango(); 
+    public static int cantidad = 0;
     
     public SoldadoRaso(String nombre, String id) {
         super(nombre, id);
         setRango("Soldado Raso");
+        cantidad++;
     }
 
     @Override
@@ -22,6 +24,9 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares{
 
         }
 
+    public void realizarAccion(){
+            rango.realizarAccion();
+        }
 
     private class SoldadoRaso_rango extends rango{
         int nivel;
@@ -83,13 +88,15 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares{
         System.out.println("");
         System.out.println("El " + getRango() + " " + getNombre() + " con código " + getId() + " reporta: ");
         System.out.println("");
-        System.out.println(" -informe de tareas diarias");
+        System.out.println(" -Estado de tarea asignada");
         System.out.println("");
         System.out.println(" -condiciones del entorno");
         System.out.println("");
         System.out.println(" -necesidad de suministros");
         System.out.println("");
         System.out.println(" -observaciones");
+        System.out.println("");
+        System.out.println(" -proximidad del enemigo");
         
     }
 }
