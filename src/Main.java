@@ -19,12 +19,19 @@ public class Main {
         Teniente teniente1 = new Teniente("Camilo","S002" );
         Capitan capitan1 = new Capitan("Miguel", "S003");
         Coronel coronel1 = new Coronel("Andrea", "S000");
+
+        soldado1.mostrarInformacion();
+        soldado1.asignarMision();
+        soldado1.reportarEstado();
+        
+
         ArrayList <Soldado> soldados = new ArrayList<Soldado>();
         soldados.add(soldado1);
         soldados.add(teniente1);
         soldados.add(capitan1);
         soldados.add(coronel1);
-        byte salir_de_sistema = 0;
+
+        byte salir_de_sistema = 1;
         Scanner scanner = new Scanner(System.in);
         while (salir_de_sistema != 1){
 
