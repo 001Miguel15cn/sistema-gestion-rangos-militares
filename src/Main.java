@@ -9,7 +9,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // Inicialización de soldados por defecto
+
+
         SoldadoRaso soldado1 = new SoldadoRaso("Juan", "S001");
         SoldadoRaso soldado2 = new SoldadoRaso("Roberto", "S004");
         SoldadoRaso soldado3 = new SoldadoRaso("Albaro", "S005");
