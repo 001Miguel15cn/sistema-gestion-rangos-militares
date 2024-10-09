@@ -10,13 +10,21 @@ public class Capitan extends Soldado implements OperacionesMilitares {
 
     public Capitan(String nombre, String id) {
         super(nombre, id);
-        //un capitan por defecto tiene 50 soldados bajo su mando
-        this.soldadosBajoMando = 50;
+        this.soldadosBajoMando = 0;
         setRango("Capitan");
         cantidad++;
     }
-
     
+
+    public int getSoldadosBajoMando() {
+        return soldadosBajoMando;
+    }
+
+
+    public void setSoldadosBajoMando(int soldadosBajoMando) {
+        this.soldadosBajoMando = soldadosBajoMando;
+    }
+
 
     @Override
     //este debe ser cambiado por reportar informacion
@@ -25,8 +33,6 @@ public class Capitan extends Soldado implements OperacionesMilitares {
         System.out.println("Soldado[ Nombre: " + getNombre() + ", Id: " + getId() + ", Rango: "
         + getRango() + ", nivel: " + rango.getNivel() + ", unidad: " + rango.getUnidad() + ", Comanda: "+ soldadosBajoMando + " soldados"+ "]");
 
-       
-        System.out.println("Tiene " + soldadosBajoMando + " soldados bajo su mando.");
     }
     public void setUnidad(String unidad){
         rango.setUnidad(unidad);
@@ -47,23 +53,23 @@ public class Capitan extends Soldado implements OperacionesMilitares {
         
         @Override
         public void setNivel(int nivel) {
-            // TODO Auto-generated method stub
+            
                 this.nivel = nivel;
         }
         @Override
         public void setUnidad(String unidad) {
-            // TODO Auto-generated method stub
+            
                 this.unidad = unidad;
 
         }
         @Override
         public int getNivel() {
-            // TODO Auto-generated method stub
+            
             return nivel;
         }
         @Override
         public String getUnidad() {
-            // TODO Auto-generated method stub
+            
             return unidad;
         }
 
@@ -81,17 +87,16 @@ public class Capitan extends Soldado implements OperacionesMilitares {
     }
     
 }
-
     @Override
     public void asignarMision() {
-        // TODO Auto-generated method stub
+        
         System.out.println("");
         System.out.println("El Capitán " + getNombre() + " asigna una misión táctica.");
     }
 
     @Override
     public void reportarEstado() {
-        // TODO Auto-generated method stub
+       
         System.out.println("");
         System.out.println("El " + getRango() + " " + getNombre() + " con código " + getId() + " reporta: ");
         System.out.println("");

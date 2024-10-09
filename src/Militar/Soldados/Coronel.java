@@ -14,7 +14,6 @@ public class Coronel extends Soldado implements OperacionesMilitares {
         cantidad++;
     }
 
-  
      public void setUnidad(String unidad){
         rango.setUnidad(unidad);
          }
@@ -26,7 +25,6 @@ public class Coronel extends Soldado implements OperacionesMilitares {
         rango.realizarAccion();
     }
 
-
     private class Coronel_rango extends rango{
         int nivel;
         String unidad;
@@ -37,37 +35,35 @@ public class Coronel extends Soldado implements OperacionesMilitares {
         
         @Override
         public void setNivel(int nivel) {
-            // TODO Auto-generated method stub
+            
                 this.nivel = nivel;
         }
         @Override
         public void setUnidad(String unidad) {
-            // TODO Auto-generated method stub
+            
                 this.unidad = unidad;
 
         }
         @Override
         public int getNivel() {
-            // TODO Auto-generated method stub
+            
             return nivel;
         }
         @Override
         public String getUnidad() {
-            // TODO Auto-generated method stub
+           
             return unidad;
         }
 
-        
-
         @Override
         public String getEstrategia() {
-            // TODO Auto-generated method stub
+           
             return super.getEstrategia();
         }
 
         @Override
         public void setEstrategia(String estrategia) {
-            // TODO Auto-generated method stub
+            
             super.setEstrategia(estrategia);
         }
 
@@ -84,14 +80,6 @@ public class Coronel extends Soldado implements OperacionesMilitares {
             
         }
     }
-
-
-
-
-
-
-
-
 
     ///este debe ser cambiando por realizar accion
     public void mostrarInformacion() {
