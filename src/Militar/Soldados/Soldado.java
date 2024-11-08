@@ -5,9 +5,12 @@ public abstract class Soldado {
     private final String id;
     private String rango;
 
+
     public Soldado(String nombre, String id) {
         this.nombre = nombre;
         this.id = id;
+      
+      
     }
 
     public String getNombre() {
@@ -22,6 +25,8 @@ public abstract class Soldado {
         return rango;
     }
 
+   
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -30,8 +35,6 @@ public abstract class Soldado {
         this.rango = rango;
     }
 
-    // Método abstracto para setUnidad, que cada subclase debe implementar
-    public abstract void setUnidad(String unidad);
 
     public abstract void mostrarInformacion();
 
