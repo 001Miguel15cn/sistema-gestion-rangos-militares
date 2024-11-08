@@ -34,23 +34,23 @@ public class Teniente extends Soldado implements OperacionesMilitares{
         
         @Override
         public void setNivel(int nivel) {
-            
+            // TODO Auto-generated method stub
                 this.nivel = nivel;
         }
         @Override
         public void setUnidad(String unidad) {
-            
+            // TODO Auto-generated method stub
                 this.unidad = unidad;
 
         }
         @Override
         public int getNivel() {
-            
+            // TODO Auto-generated method stub
             return nivel;
         }
         @Override
         public String getUnidad() {
-        
+            // TODO Auto-generated method stub
             return unidad;
         }
 
