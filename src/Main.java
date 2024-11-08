@@ -237,6 +237,56 @@ public class Main {
     }
 
 
+    private static void subirBajarRango(Scanner scanner, Soldado soldado, ArrayList<Soldado> soldados) {
+        System.out.println("\nSeleccione la opción de rango:");
+        System.out.println("1. Subir rango");
+        System.out.println("2. Bajar rango");
+        byte opcion = scanner.nextByte();
+        Soldado nuevoSoldado = null;
+
+        if (opcion == 1) {
+            nuevoSoldado = subirRango(soldado);
+            if (nuevoSoldado != null) {
+                soldados.set(soldados.indexOf(soldado), nuevoSoldado);
+                System.out.println("Rango subido con éxito.");
+            }
+        } else if (opcion == 2) {
+            nuevoSoldado = bajarRango(soldado);
+            if (nuevoSoldado != null) {
+                soldados.set(soldados.indexOf(soldado), nuevoSoldado);
+                System.out.println("Rango bajado con éxito.");
+            }
+        } else {
+            System.out.println("Opción inválida.");
+        }
+    }
+
+    private static Soldado subirRango(Soldado soldado) {
+        if (soldado instanceof SoldadoRaso) {
+            return new Teniente(soldado.getNombre(), soldado.getId());
+        } else if (soldado instanceof Teniente) {
+            return new Capitan(soldado.getNombre(), soldado.getId());
+        } else if (soldado instanceof Capitan) {
+            return new Coronel(soldado.getNombre(), soldado.getId());
+        } else {
+            System.out.println("El Coronel no puede subir de rango.");
+            return null;
+        }
+    }
+
+    private static Soldado bajarRango(Soldado soldado) {
+        if (soldado instanceof Coronel) {
+            return new Capitan(soldado.getNombre(), soldado.getId());
+        } else if (soldado instanceof Capitan) {
+            return new Teniente(soldado.getNombre(), soldado.getId());
+        } else if (soldado instanceof Teniente) {
+            return new SoldadoRaso(soldado.getNombre(), soldado.getId());
+        } else {
+            System.out.println("El Soldado Raso no puede bajar de rango.");
+            return null;
+        }
+    }
+
 
 
 
@@ -484,6 +534,9 @@ public class Main {
                     }
                     break;
                 case 5:
+                    subirBajarRango(scanner, soldadoAModificar, soldados);
+                    break;
+                case 6:
                     salir = true;
                     break;
                 default:
@@ -500,9 +553,10 @@ public class Main {
         System.out.println("Opciones de Modificación:");
         System.out.println("1. Modificar Nombre");
         System.out.println("2. Modificar Unidad");
-        System.out.println("3. Modificar Estrategia"); // Solo para ciertos rangos
+        System.out.println("3. Modificar Estrategia (solo para coroneles)"); // Solo para ciertos rangos
         System.out.println("4. Modificar soldados Bajo mando (solo para Capitanes)");
-        System.out.println("5. Salir");
+        System.out.println("5. Modificar rango");
+        System.out.println("6. Salir");
         System.out.print("Ingrese una opción: ");
     }
 }
