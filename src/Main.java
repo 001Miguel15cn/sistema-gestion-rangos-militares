@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+    private static int ultimoID = 5;  // Inicia en el siguiente número disponible después del último soldado creado.
+
     public static void main(String[] args) {
         SoldadoRaso soldado1 = new SoldadoRaso("Juan", "S001");
         SoldadoRaso soldado2 = new SoldadoRaso("Roberto", "S004");
@@ -29,8 +31,6 @@ public class Main {
         soldados.add(capitan1);
         soldados.add(coronel1);
 
-        String mayorID = "S000";
-
         try (Scanner scanner = new Scanner(System.in)) {
             byte salirDeSistema = 0;
             while (salirDeSistema != 1) {
@@ -39,13 +39,13 @@ public class Main {
 
                 switch (opcion) {
                     case 1:
-                        mayorID = crearSoldado(scanner, soldados, mayorID);
+                        crearSoldado(scanner, soldados);
                         break;
                     case 2:
                         modificarSoldado(scanner, soldados);
                         break;
                     case 3:
-                        mostrar(scanner, soldados);
+                        mostrarSoldados(soldados);
                         break;
                     case 4:
                         System.out.println("\nOperación finalizada.");
@@ -74,20 +74,19 @@ public class Main {
         return scanner.nextByte();
     }
 
-    private static String crearSoldado(Scanner scanner, ArrayList<Soldado> soldados, String mayorID) {
+    private static void crearSoldado(Scanner scanner, ArrayList<Soldado> soldados) {
         System.out.print("Ingrese el nombre del nuevo soldado: ");
         String nombre = scanner.next();
-        String nuevoID = generarNuevoID(mayorID);
+        String nuevoID = generarNuevoID();
 
         SoldadoRaso nuevoSoldado = new SoldadoRaso(nombre, nuevoID);
         soldados.add(nuevoSoldado);
         System.out.println("Soldado " + nombre + " creado con ID " + nuevoID);
-        return nuevoID;
     }
 
-    private static String generarNuevoID(String mayorID) {
-        int numeroID = Integer.parseInt(mayorID.substring(1)) + 1;
-        return "S" + String.format("%03d", numeroID);
+    private static String generarNuevoID() {
+        ultimoID++;
+        return "S" + String.format("%03d", ultimoID);
     }
 
     private static void modificarSoldado(Scanner scanner, ArrayList<Soldado> soldados) {
@@ -208,7 +207,7 @@ public class Main {
         }
     }
 
-    private static void mostrar(Scanner scanner, ArrayList<Soldado> soldados) {
+    private static void mostrarSoldados(ArrayList<Soldado> soldados) {
         if (soldados.isEmpty()) {
             System.out.println("No hay soldados registrados.");
         } else {
