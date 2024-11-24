@@ -6,9 +6,12 @@ import Militar.Soldados.Soldado;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import interfaz_grafica.interfaz_principal;
 public class Main {
     public static void main(String[] args) {
+        interfaz_principal interfaz = new interfaz_principal();
+        interfaz.setVisible(true);
+        
 
 
         SoldadoRaso soldado1 = new SoldadoRaso("Juan", "S001");
@@ -560,3 +563,4 @@ public class Main {
         System.out.print("Ingrese una opción: ");
     }
 }
+
