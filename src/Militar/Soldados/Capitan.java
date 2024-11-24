@@ -1,5 +1,7 @@
 package Militar.Soldados;
 
+import java.util.ArrayList;
+
 import Militar.rangos.rango;
 import Operaciones.OperacionesMilitares;
 
@@ -34,6 +36,47 @@ public class Capitan extends Soldado implements OperacionesMilitares {
         + getRango() + ", nivel: " + rango.getNivel() + ", unidad: " + rango.getUnidad() + ", Comanda: "+ soldadosBajoMando + " soldados"+ "]");
 
     }
+
+    @Override
+    public void patrullar() {
+        // Imprime la forma de patrullar del capitan
+        System.out.println("El capitan saca unos vinoculares y reconoce el terreno");
+    }
+
+    @Override
+    public void saludar() {
+        // comprueba si el capitan tiene un nombre definido y si no esta vacio este parametro
+        if (getNombre() != null && !getNombre().isEmpty()) {
+            // Convertir el nombre a minúsculas para evitar problemas con mayúsculas/minúsculas
+            String nombreEnMinusula = getNombre().toLowerCase();
+            // Obtener la primera y última letra
+            char primeraLetra = nombreEnMinusula.charAt(0);
+            char ultimaLetra = nombreEnMinusula.charAt(nombreEnMinusula.length() - 1);
+            // Comparar si la primera y la última letra son iguales
+            if (primeraLetra == ultimaLetra) {
+                System.out.println("El capitan " + getNombre() + " hace una voltereta en el aire y atrapa sus binoculares con la boca y luego te saluda con el pie");
+            } else {
+                System.out.println("El capitan " + getNombre() + " intenta hacer una voltereta pero se cae y se rompe la espalda, te saluda con una carta desde el hospital");
+            }
+        } else {
+            System.out.println("El capitan no tiene un nombre definido");
+        }       
+    }
+
+    @Override
+    public void regañado(ArrayList<Soldado> soldados) {
+        if (rango.getNivel() > 1) {
+            // Si el nivel es mayor que 1, se disminuye el nivel
+            rango.setNivel(rango.getNivel() - 1);
+            System.out.println("El capitan " + getNombre() + " ha sido regañado. Su nivel de rango ha bajado a " + rango.getNivel());
+        } else if (rango.getNivel() == 1) {
+            // Si el nivel es 1, es expulsado
+            System.out.println("El capitan " + getNombre() + " ha sido expulsado debido a su bajo nivel de rango.");
+            soldados.remove(this); // Es eliminado de la lista
+        }
+    }
+
+
     public void setUnidad(String unidad){
         rango.setUnidad(unidad);
          }

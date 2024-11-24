@@ -1,5 +1,7 @@
 package Militar.Soldados;
 
+import java.util.ArrayList;
+
 import Militar.rangos.rango;
 import Operaciones.OperacionesMilitares;
 
@@ -27,6 +29,45 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares{
     public void realizarAccion(){
             rango.realizarAccion();
         }
+
+    @Override
+    public void patrullar() {
+        // Imprime la forma de patrullar del soldado raso
+        System.out.println("El soldado raso toma su rifle y se lanza al campo de batalla a realizar un reconocimiento");
+    }
+
+    @Override
+    public void saludar() {
+        // comprueba si el soldado razo tiene un nombre definido y si no esta vacio este parametro
+        if (getNombre() != null && !getNombre().isEmpty()) {
+            // Convertir el nombre a minúsculas para evitar problemas con mayúsculas/minúsculas
+            String nombreEnMinusula = getNombre().toLowerCase();
+            // Obtener la primera y última letra
+            char primeraLetra = nombreEnMinusula.charAt(0);
+            char ultimaLetra = nombreEnMinusula.charAt(nombreEnMinusula.length() - 1);
+            // Comparar si la primera y la última letra son iguales
+            if (primeraLetra == ultimaLetra) {
+                System.out.println("El soldado raso " + getNombre() + " se pone en postura y hace una señal de respeto");
+            } else {
+                System.out.println("El soldado raso " + getNombre() + " olvido ponerle el seguro a su arma y se disparo al pie mientras intentaba hacer su rutina de saludo");
+            }
+        } else {
+            System.out.println("El soldado raso no tiene un nombre definido");
+        }       
+    }
+
+    @Override
+    public void regañado(ArrayList<Soldado> soldados) {
+        if (rango.getNivel() > 1) {
+            // Si el nivel es mayor que 1, se disminuye el nivel
+            rango.setNivel(rango.getNivel() - 1);
+            System.out.println("El soldado raso " + getNombre() + " ha sido regañado. Su nivel de rango ha bajado a " + rango.getNivel());
+        } else if (rango.getNivel() == 1) {
+            // Si el nivel es 1, es expulsado
+            System.out.println("El soldado raso " + getNombre() + " ha sido expulsado debido a su bajo nivel de rango.");
+            soldados.remove(this); // Es eliminado de la lista
+        }
+    }
 
     private class SoldadoRaso_rango extends rango{
         int nivel;
