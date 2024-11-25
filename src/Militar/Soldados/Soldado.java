@@ -1,5 +1,7 @@
 package Militar.Soldados;
 
+import java.util.ArrayList;
+
 public abstract class Soldado {
     private String nombre;
     private final String id;
@@ -37,6 +39,12 @@ public abstract class Soldado {
 
 
     public abstract void mostrarInformacion();
+
+    public abstract void patrullar();
+
+    public abstract void saludar();
+
+    public abstract void regañado(ArrayList<Soldado> soldados);
 
     @Override
     public String toString() {
