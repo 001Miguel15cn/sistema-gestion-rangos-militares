@@ -1,4 +1,6 @@
 package Militar.Soldados;
+import java.util.ArrayList;
+
 import Militar.rangos.rango;
 import Operaciones.OperacionesMilitares;
 
@@ -22,6 +24,41 @@ public class Teniente extends Soldado implements OperacionesMilitares{
     public void realizarAccion(){
             rango.realizarAccion();
         }
+
+    @Override
+    public void patrullar() {
+        // Imprime la forma de patrullar del teniente
+        System.out.println("El teniente se pone un traje de camuflaje y se adelanta al campo de combate para realizar una operacion especial para reconocer los enemigos en el terreno");
+    }
+
+    @Override
+    public void saludar() {
+        // comprueba si el teniente tiene un nombre definido y si no esta vacio este parametro
+        if (getNombre() != null && !getNombre().isEmpty()) {
+            // Convertir el nombre a minúsculas para evitar problemas con mayúsculas/minúsculas
+            String nombreEnMinusula = getNombre().toLowerCase();
+            // Obtener la primera y última letra
+            char primeraLetra = nombreEnMinusula.charAt(0);
+            char ultimaLetra = nombreEnMinusula.charAt(nombreEnMinusula.length() - 1);
+            // Comparar si la primera y la última letra son iguales
+            if (primeraLetra == ultimaLetra) {
+                System.out.println("El teniente " + getNombre() + " hace un canto junto a su unidad para darle la bienvenida");
+            } else {
+                System.out.println("El teniente " + getNombre() + " desafino a la hora de cantar y toda su unidad se rie de el arruinando el saludo");
+            }
+        } else {
+            System.out.println("El teniente no tiene un nombre definido");
+        }       
+    }
+
+    @Override
+    public void regañado(ArrayList<Soldado> soldados) {
+        System.out.println("Ahora el teniente " + getNombre() + " es un soldado raso debido a su mal desempeño en su labor");
+        SoldadoRaso soldadoBajado = new SoldadoRaso(getNombre(), getId());
+        // Se reemplaza el teniente por el nuevo soldado raso en la lista
+        soldados.remove(this);  // Elimina al teniente de la lista
+        soldados.add(soldadoBajado);  // Agrega el nuevo soldado raso a la lista
+    }
 
 
     private class Teniente_rango extends rango{
