@@ -10,11 +10,13 @@ import java.util.ArrayList;
 
 public class interfaz_crear_soldado extends javax.swing.JFrame {
 
-    private static ArrayList<Soldado> listaSoldados = new ArrayList<>();  // Lista global para almacenar los soldados creados
-    private static int contadorID = 6; // Empezamos en 6 porque ya hay soldados con ID S001 a S005
+    private ArrayList<Soldado> soldados;
+    private static int contadorID = 6;  // Contador estático para generar IDs únicos
+
 
     public interfaz_crear_soldado() {
         initComponents();
+        this.soldados = new ArrayList<>();
     }
 
     @SuppressWarnings("unchecked")
@@ -170,7 +172,7 @@ public class interfaz_crear_soldado extends javax.swing.JFrame {
         }
 
         // Añadir a la lista de soldados
-        listaSoldados.add(nuevoSoldado);
+        soldados.add(nuevoSoldado);
 
         // Confirmación y reset de campos
         JOptionPane.showMessageDialog(this, "Soldado creado con ID: " + id, "Éxito", JOptionPane.INFORMATION_MESSAGE);
