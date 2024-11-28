@@ -150,15 +150,15 @@ public class Modificar_capitan extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrada_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_nombreActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_entrada_nombreActionPerformed
 
     private void entrada_unidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_unidadActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_entrada_unidadActionPerformed
 
     private void boton_guardar_cambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_guardar_cambiosActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_boton_guardar_cambiosActionPerformed
 
     private void boton_bajarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_bajarActionPerformed
@@ -166,15 +166,15 @@ public class Modificar_capitan extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_bajarActionPerformed
 
     private void entrada_soldados_bajo_mandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_soldados_bajo_mandoActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_entrada_soldados_bajo_mandoActionPerformed
 
     private void boton_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_volverActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_boton_volverActionPerformed
 
     private void boton_subirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_subirActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_boton_subirActionPerformed
 
     /**

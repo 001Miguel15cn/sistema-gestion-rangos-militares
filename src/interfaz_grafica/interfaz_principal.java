@@ -144,6 +144,8 @@ public class interfaz_principal extends javax.swing.JFrame {
                 Boton_asignar_misionActionPerformed(evt);
             }
         });
+
+        
         panel_menu_de_gestion.add(Boton_asignar_mision);
 
         jPanel1.add(panel_menu_de_gestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 270, 90));
@@ -399,11 +401,11 @@ public class interfaz_principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_resetearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_resetearActionPerformed
-        // TODO add your handling code here:
+        // /*codigo aqui */
     }//GEN-LAST:event_boton_resetearActionPerformed
 
     private void entrada_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_codigoActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_entrada_codigoActionPerformed
 
     private void boton_mostrar_informacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_mostrar_informacionActionPerformed
@@ -424,15 +426,15 @@ public class interfaz_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_mostrar_informacionActionPerformed
 
     private void Boton_asignar_misionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_asignar_misionActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_Boton_asignar_misionActionPerformed
 
     private void entrada_misionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_misionActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_entrada_misionActionPerformed
 
     private void Boton_reportar_estadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_reportar_estadoActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_Boton_reportar_estadoActionPerformed
 
     private void boton_crear_soldadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_crear_soldadoActionPerformed
@@ -474,23 +476,23 @@ public class interfaz_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_editar_soldadoActionPerformed
 
     private void Soldados_rasos_totalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Soldados_rasos_totalesActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_Soldados_rasos_totalesActionPerformed
 
     private void Tenientes_totalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tenientes_totalesActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_Tenientes_totalesActionPerformed
 
     private void Coroneles_totalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Coroneles_totalesActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_Coroneles_totalesActionPerformed
 
     private void Capitanes_totalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Capitanes_totalesActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_Capitanes_totalesActionPerformed
 
     private void Boton_patrullarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_patrullarActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_Boton_patrullarActionPerformed
 
     private void CDEActionPerformed(java.awt.event.ActionEvent evt) {
@@ -571,6 +573,7 @@ private void nimbusActionPerformed(java.awt.event.ActionEvent evt) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    
     private javax.swing.JButton Boton_asignar_mision;
     private javax.swing.JButton Boton_patrullar;
     private javax.swing.JButton Boton_regañar_soldado;

@@ -2,18 +2,20 @@ package Militar.Soldados;
 
 import java.util.ArrayList;
 
-public abstract class Soldado {
+public class Soldado {
+      
     private String nombre;
-    private final String id;
+    private final  String id;  // ID generado automáticamente
     private String rango;
 
-
-    public Soldado(String nombre, String id) {
+    // Constructor que recibe nombre y rango, pero genera el ID automáticamente
+    public Soldado(String nombre, String rango, String id) {
         this.nombre = nombre;
-        this.id = id;
-      
-      
+        this.rango = rango;
+        this.id = id;  // Generar el ID único al crear el soldado
     }
+
+    
 
     public String getNombre() {
         return nombre;
@@ -27,8 +29,6 @@ public abstract class Soldado {
         return rango;
     }
 
-   
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -37,14 +37,22 @@ public abstract class Soldado {
         this.rango = rango;
     }
 
+    // Implementación de los métodos abstractos
+    public void mostrarInformacion() {
+        System.out.println("Información del Soldado: " + this.toString());
+    }
 
-    public abstract void mostrarInformacion();
+    public void patrullar() {
+        System.out.println("El soldado " + nombre + " está patrullando.");
+    }
 
-    public abstract void patrullar();
+    public void saludar() {
+        System.out.println("El soldado " + nombre + " saluda.");
+    }
 
-    public abstract void saludar();
-
-    public abstract void regañado(ArrayList<Soldado> soldados);
+    public void regañado(ArrayList<Soldado> soldados) {
+        System.out.println("El soldado " + nombre + " está siendo regañado.");
+    }
 
     @Override
     public String toString() {
