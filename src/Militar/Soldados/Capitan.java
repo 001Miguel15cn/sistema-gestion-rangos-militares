@@ -27,11 +27,14 @@ public class Capitan extends Soldado implements OperacionesMilitares {
 
     // Método sobrescrito para mostrar la información
     @Override
-    public void mostrarInformacion() {
-        System.out.println("");
-        System.out.println("Soldado[ Nombre: " + getNombre() + ", Id: " + getId() + ", Rango: "
+    public String mostrarInformacion() {
+       // System.out.println("");
+        //System.out.println("Soldado[ Nombre: " + getNombre() + ", Id: " + getId() + ", Rango: "
+        //        + getRango() + ", nivel: " + rango.getNivel() + ", unidad: " + rango.getUnidad()
+         //       + ", Comanda: " + soldadosBajoMando + " soldados]");
+        return "Soldado[ Nombre: " + getNombre() + ", Id: " + getId() + ", Rango: "
                 + getRango() + ", nivel: " + rango.getNivel() + ", unidad: " + rango.getUnidad()
-                + ", Comanda: " + soldadosBajoMando + " soldados]");
+                + ", Comanda: " + soldadosBajoMando + " soldados]";
     }
 
     // Método sobrescrito para patrullaje

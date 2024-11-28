@@ -6,8 +6,12 @@ package interfaz_grafica;
 
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
-
+import javax.swing.AbstractListModel;
+import Militar.Soldados.Capitan;
+import Militar.Soldados.Coronel;
 import Militar.Soldados.Soldado;
+import Militar.Soldados.SoldadoRaso;
+import Militar.Soldados.Teniente;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -41,6 +45,37 @@ public class interfaz_principal extends javax.swing.JFrame {
     initComponents();
     
     
+    }
+
+        public void update(){
+        int index = 0; 
+        String[] string = new String[listaSoldados.size()];
+        Soldados_rasos_totales.setText("" + SoldadoRaso.cantidad);
+        Tenientes_totales.setText("" + Teniente.cantidad);
+        Capitanes_totales.setText("" + Capitan.cantidad);
+        Coroneles_totales.setText("" + Coronel.cantidad);
+
+        Soldados_rasos_totales.repaint();
+        Tenientes_totales.repaint();
+        Capitanes_totales.repaint();
+        Coroneles_totales.repaint();
+
+        for (Soldado soldado : listaSoldados) {
+           string[index] = soldado.mostrarInformacion();
+           index++;
+        }
+        lista_de_soldado.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = string;
+ 
+ 
+             
+             public int getSize() { return strings.length; }
+             public String getElementAt(int i) { return strings[i]; }
+         });
+
+         
+        lista_de_soldado.repaint();
+
     }
 
     /**
@@ -239,7 +274,7 @@ public class interfaz_principal extends javax.swing.JFrame {
         Soldados_rasos_totales.setBackground(new java.awt.Color(0, 102, 51));
         Soldados_rasos_totales.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         Soldados_rasos_totales.setForeground(new java.awt.Color(255, 255, 255));
-        Soldados_rasos_totales.setText("0");
+        Soldados_rasos_totales.setText("" + SoldadoRaso.cantidad);
         Soldados_rasos_totales.setBorder(null);
         Soldados_rasos_totales.setCaretColor(new java.awt.Color(255, 255, 255));
         Soldados_rasos_totales.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -260,7 +295,7 @@ public class interfaz_principal extends javax.swing.JFrame {
         Tenientes_totales.setBackground(new java.awt.Color(0, 102, 51));
         Tenientes_totales.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         Tenientes_totales.setForeground(new java.awt.Color(255, 255, 255));
-        Tenientes_totales.setText("0");
+        Tenientes_totales.setText("" + Teniente.cantidad);
         Tenientes_totales.setBorder(null);
         Tenientes_totales.setCaretColor(new java.awt.Color(255, 255, 255));
         Tenientes_totales.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -281,7 +316,7 @@ public class interfaz_principal extends javax.swing.JFrame {
         Capitanes_totales.setBackground(new java.awt.Color(0, 102, 51));
         Capitanes_totales.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         Capitanes_totales.setForeground(new java.awt.Color(255, 255, 255));
-        Capitanes_totales.setText("0");
+        Capitanes_totales.setText("" + Capitan.cantidad);
         Capitanes_totales.setBorder(null);
         Capitanes_totales.setCaretColor(new java.awt.Color(255, 255, 255));
         Capitanes_totales.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -302,7 +337,7 @@ public class interfaz_principal extends javax.swing.JFrame {
         Coroneles_totales.setBackground(new java.awt.Color(0, 102, 51));
         Coroneles_totales.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         Coroneles_totales.setForeground(new java.awt.Color(255, 255, 255));
-        Coroneles_totales.setText("0");
+        Coroneles_totales.setText("" + Coronel.cantidad);
         Coroneles_totales.setBorder(null);
         Coroneles_totales.setCaretColor(new java.awt.Color(255, 255, 255));
         Coroneles_totales.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -344,10 +379,15 @@ public class interfaz_principal extends javax.swing.JFrame {
         panel_principal_de_lista.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 37, 127, -1));
 
         lista_de_soldado.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+           // String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+           String[] strings = new String[listaSoldados.size()];
+
+
+            
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+
         panel_de_Lista.setViewportView(lista_de_soldado);
 
         panel_principal_de_lista.add(panel_de_Lista, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 72, 230, 280));
@@ -416,6 +456,9 @@ public class interfaz_principal extends javax.swing.JFrame {
                       // Crear una nueva instancia de la interfaz Modificar_soldado
         if(control3){
          interfaz_mostrar_informacion ventanaMostrarSoldado = new interfaz_mostrar_informacion();
+         ventanaMostrarSoldado.listaSoldados = listaSoldados;
+         ventanaMostrarSoldado.interfaz = this;
+            
           //escuchar cuando la ventana se cierre para establecer en true la variable de control
          ventanaMostrarSoldado.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
@@ -445,6 +488,7 @@ public class interfaz_principal extends javax.swing.JFrame {
         if (control) {
             interfaz_crear_soldado ventanaCrearSoldado = new interfaz_crear_soldado();
             ventanaCrearSoldado.listaSoldados = listaSoldados;
+            ventanaCrearSoldado.interfaz = this;
             
              //escuchar cuando la ventana se cierre para establecer en true la variable de control
             ventanaCrearSoldado.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -467,6 +511,8 @@ public class interfaz_principal extends javax.swing.JFrame {
             if (control2){
             Ingresar_modificar_soldado ventanaModificarSoldado = new Ingresar_modificar_soldado();
             //escuchar cuando la ventana se cierre para establecer en true la variable de control
+            ventanaModificarSoldado.listaSoldados = listaSoldados;
+            ventanaModificarSoldado.interfaz = this;
             ventanaModificarSoldado.addWindowListener(new java.awt.event.WindowAdapter() {
                 @Override
                 public void windowClosed(java.awt.event.WindowEvent e) {

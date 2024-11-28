@@ -38,8 +38,9 @@ public class Soldado {
     }
 
     // Implementación de los métodos abstractos
-    public void mostrarInformacion() {
+    public String mostrarInformacion() {
         System.out.println("Información del Soldado: " + this.toString());
+        return "Información del Soldado: " + this.toString();
     }
 
     public void patrullar() {

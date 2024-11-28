@@ -1,5 +1,7 @@
 package interfaz_grafica;
 
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 import Militar.Soldados.Soldado;
 
@@ -9,7 +11,8 @@ import Militar.Soldados.Soldado;
  */
 public class Ingresar_modificar_soldado extends javax.swing.JFrame {
     // Instancia del controlador
-  
+    public static ArrayList<Soldado> listaSoldados = new ArrayList<>(); 
+    public interfaz_principal interfaz;
 
     /**
      * Creates new form Modificar_soldado

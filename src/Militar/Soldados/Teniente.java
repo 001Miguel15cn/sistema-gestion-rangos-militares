@@ -105,10 +105,12 @@ public class Teniente extends Soldado implements OperacionesMilitares{
 }
 
     @Override
-    public void mostrarInformacion(){
-        System.out.println("");
-        System.out.println("Soldado[ Nombre: " + getNombre() + ", Id: " + getId() + ", Rango: "
-            + getRango() + ", nivel: " + rango.getNivel() + ", unidad: " + rango.getUnidad() + "]");
+    public String mostrarInformacion(){
+        //System.out.println("");
+       // System.out.println("Soldado[ Nombre: " + getNombre() + ", Id: " + getId() + ", Rango: "
+        //    + getRango() + ", nivel: " + rango.getNivel() + ", unidad: " + rango.getUnidad() + "]");
+        return "Soldado[ Nombre: " + getNombre() + ", Id: " + getId() + ", Rango: "
+            + getRango() + ", nivel: " + rango.getNivel() + ", unidad: " + rango.getUnidad() + "]";
     }
 
     @Override

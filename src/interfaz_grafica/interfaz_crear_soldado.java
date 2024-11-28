@@ -13,7 +13,10 @@ public class interfaz_crear_soldado extends javax.swing.JFrame {
 
     public static ArrayList<Soldado> listaSoldados = new ArrayList<>();  // Lista global para almacenar los soldados creados
     private static int contadorID = 6; // Empezamos en 6 porque ya hay soldados con ID S001 a S005
-
+    public interfaz_principal interfaz;
+    public interfaz_crear_soldado() {
+        initComponents();
+    }
 
     @SuppressWarnings("unchecked")
     private void initComponents() {
@@ -174,6 +177,7 @@ public class interfaz_crear_soldado extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Soldado creado con ID: " + id, "Éxito", JOptionPane.INFORMATION_MESSAGE);
         Entrada_nombre.setText("");  // Limpiar el campo de nombre
         buttonGroup1.clearSelection(); // Limpiar selección de rango
+        interfaz.update();
     }
 
     private void boton_volverActionPerformed(java.awt.event.ActionEvent evt) {

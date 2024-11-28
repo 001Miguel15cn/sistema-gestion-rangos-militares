@@ -4,12 +4,17 @@
  */
 package interfaz_grafica;
 
+import java.util.ArrayList;
+
+import Militar.Soldados.Soldado;
+
 /**
  *
  * @author Miguel
  */
 public class Modificar_Coronel extends javax.swing.JFrame {
-
+    public static ArrayList<Soldado> listaSoldados = new ArrayList<>(); 
+    public interfaz_principal interfaz;
     /**
      * Creates new form Modificar_Coronel
      */

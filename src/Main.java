@@ -14,6 +14,7 @@ public class Main {
         interfaz_principal interfaz = new interfaz_principal();
         interfaz.listaSoldados = soldados;
         interfaz.setVisible(true);
+       
         
 
 
@@ -38,7 +39,7 @@ public class Main {
         soldados.add(teniente1);
         soldados.add(capitan1);
         soldados.add(coronel1);
-
+        interfaz.update();
         String mayorID = "S000";
 
         // Uso de try-with-resources para gestionar el Scanner

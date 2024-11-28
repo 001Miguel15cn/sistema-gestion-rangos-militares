@@ -3,12 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaz_grafica;
+
+import java.util.ArrayList;
+
+import Militar.Soldados.Soldado;
+
 /**
  *
  * @author Miguel
  */
 public class interfaz_mostrar_informacion extends javax.swing.JFrame {
-
+    public static ArrayList<Soldado> listaSoldados = new ArrayList<>(); 
+    public interfaz_principal interfaz;
     /**
      * Creates new form interfaz_mostrar_informacion
      */
