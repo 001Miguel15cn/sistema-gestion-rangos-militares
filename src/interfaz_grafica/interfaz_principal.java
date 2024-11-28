@@ -6,7 +6,11 @@ package interfaz_grafica;
 
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+
+import Militar.Soldados.Soldado;
+
 import java.awt.Color;
+import java.util.ArrayList;
 
 
 /**
@@ -18,7 +22,7 @@ public class interfaz_principal extends javax.swing.JFrame {
     boolean control = true;
     boolean control2 = true;
     boolean control3 = true;
-
+    public static ArrayList<Soldado> listaSoldados = new ArrayList<>(); 
     /**
      * Creates new form interfaz_principal
      */
@@ -440,6 +444,7 @@ public class interfaz_principal extends javax.swing.JFrame {
     private void boton_crear_soldadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_crear_soldadoActionPerformed
         if (control) {
             interfaz_crear_soldado ventanaCrearSoldado = new interfaz_crear_soldado();
+            ventanaCrearSoldado.listaSoldados = listaSoldados;
             
              //escuchar cuando la ventana se cierre para establecer en true la variable de control
             ventanaCrearSoldado.addWindowListener(new java.awt.event.WindowAdapter() {

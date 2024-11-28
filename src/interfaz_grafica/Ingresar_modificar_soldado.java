@@ -1,7 +1,6 @@
 package interfaz_grafica;
 
 import javax.swing.JOptionPane;
-import Militar.Soldados.ControladorSoldados;
 import Militar.Soldados.Soldado;
 
 /**
@@ -10,7 +9,7 @@ import Militar.Soldados.Soldado;
  */
 public class Ingresar_modificar_soldado extends javax.swing.JFrame {
     // Instancia del controlador
-    private ControladorSoldados controlador = new ControladorSoldados();
+  
 
     /**
      * Creates new form Modificar_soldado
@@ -112,49 +111,7 @@ public class Ingresar_modificar_soldado extends javax.swing.JFrame {
     }//GEN-LAST:event_entrada_id_soldadoActionPerformed
 
     private void boton_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_buscarActionPerformed
-        String id = entrada_id_soldado.getText();
-
-        // Verificar si el soldado existe
-        Soldado soldado = controlador.obtenerSoldado(id);
-        if (soldado != null) {
-            // Si el soldado existe, muestra un mensaje con los detalles actuales
-            String mensaje = "Soldado encontrado:\nNombre: " + soldado.getNombre() + 
-                             "\nRango: " + soldado.getRango();
-
-            // Mostrar un mensaje al usuario
-            int opcion = JOptionPane.showConfirmDialog(this, mensaje + "\n¿Deseas modificar estos datos?", 
-                                                       "Modificar Soldado", JOptionPane.YES_NO_OPTION);
-
-            if (opcion == JOptionPane.YES_OPTION) {
-                // Si el usuario quiere modificar, habilitar campos para modificar
-                entrada_id_soldado.setEnabled(false);  // Deshabilitar ID (no se puede cambiar)
-
-                // Crear una ventana o permitir la modificación del nombre
-                String nuevoNombre = JOptionPane.showInputDialog(this, "Nuevo nombre", soldado.getNombre());
-
-                // Lista de rangos posibles (esto es solo un ejemplo, puedes usar tu propia lista)
-                String[] rangos = {"Soldado", "Sargento", "Teniente", "Coronel"};
-                String nuevoRango = (String) JOptionPane.showInputDialog(this, "Selecciona el nuevo rango", 
-                                                                          "Nuevo Rango", JOptionPane.QUESTION_MESSAGE, 
-                                                                          null, rangos, soldado.getRango());
-
-                if (nuevoNombre != null && nuevoRango != null) {
-                    // Modificar los datos del soldado
-                    controlador.modificarSoldado(id, nuevoNombre, nuevoRango);
-
-                    // Confirmación de que se modificó correctamente
-                    JOptionPane.showMessageDialog(this, "Soldado modificado exitosamente\nNombre: " + nuevoNombre + 
-                                                  "\nRango: " + nuevoRango);
-                } else {
-                    JOptionPane.showMessageDialog(this, "Operación cancelada o valores no válidos.",
-                                                  "Error", JOptionPane.ERROR_MESSAGE);
-                }
-            }
-        } else {
-            // Si no existe el soldado con ese ID
-            JOptionPane.showMessageDialog(this, "No se encontró un soldado con ese ID.", 
-                                          "Error", JOptionPane.ERROR_MESSAGE);
-        }
+       
     }//GEN-LAST:event_boton_buscarActionPerformed
 
     private void boton_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_volverActionPerformed
