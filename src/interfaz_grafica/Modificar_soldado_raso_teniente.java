@@ -4,12 +4,17 @@
  */
 package interfaz_grafica;
 
+import java.util.ArrayList;
+
+import Militar.Soldados.Soldado;
+
 /**
  *
  * @author Miguel
  */
 public class Modificar_soldado_raso_teniente extends javax.swing.JFrame {
-
+    public static ArrayList<Soldado> listaSoldados = new ArrayList<>(); 
+    public interfaz_principal interfaz;
     /**
      * Creates new form Modificar_soldado
      */
@@ -136,7 +141,7 @@ public class Modificar_soldado_raso_teniente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Boton_guardar_cambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_guardar_cambiosActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_Boton_guardar_cambiosActionPerformed
 
     private void Boton_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_volverActionPerformed
@@ -144,11 +149,11 @@ public class Modificar_soldado_raso_teniente extends javax.swing.JFrame {
     }//GEN-LAST:event_Boton_volverActionPerformed
 
     private void entrada_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_nombreActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_entrada_nombreActionPerformed
 
     private void entrada_unidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_unidadActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_entrada_unidadActionPerformed
 
     private void Boton_bajar_rangoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_bajar_rangoActionPerformed
@@ -156,7 +161,7 @@ public class Modificar_soldado_raso_teniente extends javax.swing.JFrame {
     }//GEN-LAST:event_Boton_bajar_rangoActionPerformed
 
     private void Boton_subir_rangoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_subir_rangoActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_Boton_subir_rangoActionPerformed
 
     /**

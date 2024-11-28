@@ -10,11 +10,13 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares{
     public static int cantidad = 0;
     
     public SoldadoRaso(String nombre, String id) {
-        super(nombre, id);
+        super(nombre,"SoldadoRaso",id);
         setRango("Soldado Raso");
         cantidad++;
     }
 
+
+    
     @Override
     public String toString() {
         return "Soldado[ Nombre: " + getNombre() + ", Id: " + getId() + ", Rango: "
@@ -73,23 +75,23 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares{
         
         @Override
         public void setNivel(int nivel) {
-            // TODO Auto-generated method stub
+            
                 this.nivel = nivel;
         }
         @Override
         public void setUnidad(String unidad) {
-            // TODO Auto-generated method stub
+            
                 this.unidad = unidad;
 
         }
         @Override
         public int getNivel() {
-            // TODO Auto-generated method stub
+            
             return nivel;
         }
         @Override
         public String getUnidad() {
-            // TODO Auto-generated method stub
+            
             return unidad;
         }
 
@@ -104,11 +106,13 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares{
     }
 
     @Override
-    public void mostrarInformacion(){
-         System.out.println("");
-         System.out.println("Soldado[ Nombre: " + getNombre() + ", Id: " + getId() + ", Rango: "
-                + getRango() + ", nivel: " + rango.getNivel() + ", unidad: " + rango.getUnidad() + "]");
-         
+    public String mostrarInformacion(){
+         //System.out.println("");
+        // System.out.println("Soldado[ Nombre: " + getNombre() + ", Id: " + getId() + ", Rango: "
+               // + getRango() + ", nivel: " + rango.getNivel() + ", unidad: " + rango.getUnidad() + "]");
+
+         return "Soldado[ Nombre: " + getNombre() + ", Id: " + getId() + ", Rango: "
+                + getRango() + ", nivel: " + rango.getNivel() + ", unidad: " + rango.getUnidad() + "]";
          
     }
 

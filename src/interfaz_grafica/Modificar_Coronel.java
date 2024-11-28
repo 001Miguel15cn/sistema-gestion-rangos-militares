@@ -4,12 +4,17 @@
  */
 package interfaz_grafica;
 
+import java.util.ArrayList;
+
+import Militar.Soldados.Soldado;
+
 /**
  *
  * @author Miguel
  */
 public class Modificar_Coronel extends javax.swing.JFrame {
-
+    public static ArrayList<Soldado> listaSoldados = new ArrayList<>(); 
+    public interfaz_principal interfaz;
     /**
      * Creates new form Modificar_Coronel
      */
@@ -135,11 +140,11 @@ public class Modificar_Coronel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrada_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_nombreActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_entrada_nombreActionPerformed
 
     private void entrada_unidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_unidadActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_entrada_unidadActionPerformed
 
     private void boton_bajarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_bajarActionPerformed
@@ -147,15 +152,15 @@ public class Modificar_Coronel extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_bajarActionPerformed
 
     private void entrada_estrategiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_estrategiaActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_entrada_estrategiaActionPerformed
 
     private void boton_guardar_cambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_guardar_cambiosActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_boton_guardar_cambiosActionPerformed
 
     private void boton_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_volverActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_boton_volverActionPerformed
 
     /**

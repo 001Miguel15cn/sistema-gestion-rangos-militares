@@ -6,7 +6,15 @@ package interfaz_grafica;
 
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import javax.swing.AbstractListModel;
+import Militar.Soldados.Capitan;
+import Militar.Soldados.Coronel;
+import Militar.Soldados.Soldado;
+import Militar.Soldados.SoldadoRaso;
+import Militar.Soldados.Teniente;
+
 import java.awt.Color;
+import java.util.ArrayList;
 
 
 /**
@@ -18,7 +26,7 @@ public class interfaz_principal extends javax.swing.JFrame {
     boolean control = true;
     boolean control2 = true;
     boolean control3 = true;
-
+    public static ArrayList<Soldado> listaSoldados = new ArrayList<>(); 
     /**
      * Creates new form interfaz_principal
      */
@@ -37,6 +45,37 @@ public class interfaz_principal extends javax.swing.JFrame {
     initComponents();
     
     
+    }
+
+        public void update(){
+        int index = 0; 
+        String[] string = new String[listaSoldados.size()];
+        Soldados_rasos_totales.setText("" + SoldadoRaso.cantidad);
+        Tenientes_totales.setText("" + Teniente.cantidad);
+        Capitanes_totales.setText("" + Capitan.cantidad);
+        Coroneles_totales.setText("" + Coronel.cantidad);
+
+        Soldados_rasos_totales.repaint();
+        Tenientes_totales.repaint();
+        Capitanes_totales.repaint();
+        Coroneles_totales.repaint();
+
+        for (Soldado soldado : listaSoldados) {
+           string[index] = soldado.mostrarInformacion();
+           index++;
+        }
+        lista_de_soldado.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = string;
+ 
+ 
+             
+             public int getSize() { return strings.length; }
+             public String getElementAt(int i) { return strings[i]; }
+         });
+
+         
+        lista_de_soldado.repaint();
+
     }
 
     /**
@@ -144,6 +183,8 @@ public class interfaz_principal extends javax.swing.JFrame {
                 Boton_asignar_misionActionPerformed(evt);
             }
         });
+
+        
         panel_menu_de_gestion.add(Boton_asignar_mision);
 
         jPanel1.add(panel_menu_de_gestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 270, 90));
@@ -233,7 +274,7 @@ public class interfaz_principal extends javax.swing.JFrame {
         Soldados_rasos_totales.setBackground(new java.awt.Color(0, 102, 51));
         Soldados_rasos_totales.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         Soldados_rasos_totales.setForeground(new java.awt.Color(255, 255, 255));
-        Soldados_rasos_totales.setText("0");
+        Soldados_rasos_totales.setText("" + SoldadoRaso.cantidad);
         Soldados_rasos_totales.setBorder(null);
         Soldados_rasos_totales.setCaretColor(new java.awt.Color(255, 255, 255));
         Soldados_rasos_totales.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -254,7 +295,7 @@ public class interfaz_principal extends javax.swing.JFrame {
         Tenientes_totales.setBackground(new java.awt.Color(0, 102, 51));
         Tenientes_totales.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         Tenientes_totales.setForeground(new java.awt.Color(255, 255, 255));
-        Tenientes_totales.setText("0");
+        Tenientes_totales.setText("" + Teniente.cantidad);
         Tenientes_totales.setBorder(null);
         Tenientes_totales.setCaretColor(new java.awt.Color(255, 255, 255));
         Tenientes_totales.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -275,7 +316,7 @@ public class interfaz_principal extends javax.swing.JFrame {
         Capitanes_totales.setBackground(new java.awt.Color(0, 102, 51));
         Capitanes_totales.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         Capitanes_totales.setForeground(new java.awt.Color(255, 255, 255));
-        Capitanes_totales.setText("0");
+        Capitanes_totales.setText("" + Capitan.cantidad);
         Capitanes_totales.setBorder(null);
         Capitanes_totales.setCaretColor(new java.awt.Color(255, 255, 255));
         Capitanes_totales.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -296,7 +337,7 @@ public class interfaz_principal extends javax.swing.JFrame {
         Coroneles_totales.setBackground(new java.awt.Color(0, 102, 51));
         Coroneles_totales.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         Coroneles_totales.setForeground(new java.awt.Color(255, 255, 255));
-        Coroneles_totales.setText("0");
+        Coroneles_totales.setText("" + Coronel.cantidad);
         Coroneles_totales.setBorder(null);
         Coroneles_totales.setCaretColor(new java.awt.Color(255, 255, 255));
         Coroneles_totales.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -338,10 +379,15 @@ public class interfaz_principal extends javax.swing.JFrame {
         panel_principal_de_lista.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 37, 127, -1));
 
         lista_de_soldado.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+           // String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+           String[] strings = new String[listaSoldados.size()];
+
+
+            
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+
         panel_de_Lista.setViewportView(lista_de_soldado);
 
         panel_principal_de_lista.add(panel_de_Lista, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 72, 230, 280));
@@ -399,17 +445,20 @@ public class interfaz_principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_resetearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_resetearActionPerformed
-        // TODO add your handling code here:
+        // /*codigo aqui */
     }//GEN-LAST:event_boton_resetearActionPerformed
 
     private void entrada_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_codigoActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_entrada_codigoActionPerformed
 
     private void boton_mostrar_informacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_mostrar_informacionActionPerformed
                       // Crear una nueva instancia de la interfaz Modificar_soldado
         if(control3){
          interfaz_mostrar_informacion ventanaMostrarSoldado = new interfaz_mostrar_informacion();
+         ventanaMostrarSoldado.listaSoldados = listaSoldados;
+         ventanaMostrarSoldado.interfaz = this;
+            
           //escuchar cuando la ventana se cierre para establecer en true la variable de control
          ventanaMostrarSoldado.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
@@ -424,20 +473,22 @@ public class interfaz_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_mostrar_informacionActionPerformed
 
     private void Boton_asignar_misionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_asignar_misionActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_Boton_asignar_misionActionPerformed
 
     private void entrada_misionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_misionActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_entrada_misionActionPerformed
 
     private void Boton_reportar_estadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_reportar_estadoActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_Boton_reportar_estadoActionPerformed
 
     private void boton_crear_soldadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_crear_soldadoActionPerformed
         if (control) {
             interfaz_crear_soldado ventanaCrearSoldado = new interfaz_crear_soldado();
+            ventanaCrearSoldado.listaSoldados = listaSoldados;
+            ventanaCrearSoldado.interfaz = this;
             
              //escuchar cuando la ventana se cierre para establecer en true la variable de control
             ventanaCrearSoldado.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -460,6 +511,8 @@ public class interfaz_principal extends javax.swing.JFrame {
             if (control2){
             Ingresar_modificar_soldado ventanaModificarSoldado = new Ingresar_modificar_soldado();
             //escuchar cuando la ventana se cierre para establecer en true la variable de control
+            ventanaModificarSoldado.listaSoldados = listaSoldados;
+            ventanaModificarSoldado.interfaz = this;
             ventanaModificarSoldado.addWindowListener(new java.awt.event.WindowAdapter() {
                 @Override
                 public void windowClosed(java.awt.event.WindowEvent e) {
@@ -474,23 +527,23 @@ public class interfaz_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_editar_soldadoActionPerformed
 
     private void Soldados_rasos_totalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Soldados_rasos_totalesActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_Soldados_rasos_totalesActionPerformed
 
     private void Tenientes_totalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tenientes_totalesActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_Tenientes_totalesActionPerformed
 
     private void Coroneles_totalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Coroneles_totalesActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_Coroneles_totalesActionPerformed
 
     private void Capitanes_totalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Capitanes_totalesActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_Capitanes_totalesActionPerformed
 
     private void Boton_patrullarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_patrullarActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_Boton_patrullarActionPerformed
 
     private void CDEActionPerformed(java.awt.event.ActionEvent evt) {
@@ -571,6 +624,7 @@ private void nimbusActionPerformed(java.awt.event.ActionEvent evt) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    
     private javax.swing.JButton Boton_asignar_mision;
     private javax.swing.JButton Boton_patrullar;
     private javax.swing.JButton Boton_regañar_soldado;
