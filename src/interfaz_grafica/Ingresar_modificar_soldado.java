@@ -153,14 +153,17 @@ public class Ingresar_modificar_soldado extends javax.swing.JFrame {
         Soldado soldado = buscarSoldadoPorID(idBuscado);
 
         if (soldado instanceof SoldadoRaso) {
+            SoldadoRaso.remove();
             listaSoldados.remove(soldado);
             listaSoldados.add(new Teniente(soldado.getNombre(), soldado.getId()));
             JOptionPane.showMessageDialog(this, "El rango ha sido cambiado a Teniente.");
         } else if (soldado instanceof Teniente) {
+            Teniente.remove();
             listaSoldados.remove(soldado);
             listaSoldados.add(new Capitan(soldado.getNombre(), soldado.getId()));
             JOptionPane.showMessageDialog(this, "El rango ha sido cambiado a Capitán.");
         } else if (soldado instanceof Capitan) {
+            Capitan.remove();
             listaSoldados.remove(soldado);
             listaSoldados.add(new Coronel(soldado.getNombre(), soldado.getId()));
             JOptionPane.showMessageDialog(this, "El rango ha sido cambiado a Coronel.");
@@ -175,14 +178,17 @@ public class Ingresar_modificar_soldado extends javax.swing.JFrame {
         Soldado soldado = buscarSoldadoPorID(idBuscado);
 
         if (soldado instanceof Coronel) {
+            Coronel.remove();
             listaSoldados.remove(soldado);
             listaSoldados.add(new Capitan(soldado.getNombre(), soldado.getId()));
             JOptionPane.showMessageDialog(this, "El rango ha sido cambiado a Capitán.");
         } else if (soldado instanceof Capitan) {
+            Capitan.remove();
             listaSoldados.remove(soldado);
             listaSoldados.add(new Teniente(soldado.getNombre(), soldado.getId()));
             JOptionPane.showMessageDialog(this, "El rango ha sido cambiado a Teniente.");
         } else if (soldado instanceof Teniente) {
+            Teniente.remove();
             listaSoldados.remove(soldado);
             listaSoldados.add(new SoldadoRaso(soldado.getNombre(), soldado.getId()));
             JOptionPane.showMessageDialog(this, "El rango ha sido cambiado a Soldado Raso.");

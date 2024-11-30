@@ -139,7 +139,7 @@ public class Capitan extends Soldado implements OperacionesMilitares {
         return "Capitan [soldadosBajoMando=" + soldadosBajoMando + "]";
     }
 
-    public void remove(){
+    public static void remove(){
         cantidad --;
     }
 }

@@ -139,7 +139,7 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares{
         
     }
     
-    public void remove(){
+    public static void remove(){
         cantidad --;
     }
 }
