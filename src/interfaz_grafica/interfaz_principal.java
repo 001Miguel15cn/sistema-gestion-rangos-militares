@@ -7,6 +7,8 @@ package interfaz_grafica;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.AbstractListModel;
+import javax.swing.JOptionPane;
+
 import Militar.Soldados.Capitan;
 import Militar.Soldados.Coronel;
 import Militar.Soldados.Soldado;
@@ -77,6 +79,83 @@ public class interfaz_principal extends javax.swing.JFrame {
         lista_de_soldado.repaint();
 
     }
+    public void mostrarsoldado(String Id,ArrayList<Soldado> lista){
+        int index = 0; 
+        String[] string = new String[listaSoldados.size()];
+        boolean control = false;
+        int count = 0;
+
+        for (Soldado soldado : lista) {
+            if (soldado.getId().equalsIgnoreCase(Id)){
+            string[index] = soldado.mostrarInformacion();
+            control = true;
+            break;}
+             else{
+                count++;
+             }
+         }
+
+        if (count == lista.size()){
+             JOptionPane.showMessageDialog(this, "No se encontró el soldado.");  
+        }
+        if (control){
+         lista_de_soldado.setModel(new javax.swing.AbstractListModel<String>() {
+             String[] strings = string;
+  
+  
+              
+              public int getSize() { return strings.length; }
+              public String getElementAt(int i) { return strings[i]; }
+          });
+ 
+       
+            lista_de_soldado.repaint();
+         }
+
+    }
+    public void update2(ArrayList<Soldado> lista){
+        int index = 0; 
+        String[] string = new String[listaSoldados.size()];
+
+        for (Soldado soldado : lista) {
+            string[index] = soldado.mostrarInformacion();
+            index++;
+         }
+         lista_de_soldado.setModel(new javax.swing.AbstractListModel<String>() {
+             String[] strings = string;
+  
+  
+              
+              public int getSize() { return strings.length; }
+              public String getElementAt(int i) { return strings[i]; }
+          });
+ 
+          
+         lista_de_soldado.repaint();
+ 
+
+    }
+
+    public static ArrayList<Soldado> filtrar(ArrayList<Soldado> lista, int valor){
+         ArrayList<Soldado> listaretorno = new ArrayList<>(); 
+         for (Soldado soldado : lista) {
+            switch(valor){
+             case 1: if (soldado instanceof SoldadoRaso){ listaretorno.add(soldado);}
+                     break;
+             case 2: if (soldado instanceof Teniente) { listaretorno.add(soldado);}
+                     break;
+             case 3: if (soldado instanceof Capitan){ listaretorno.add(soldado);}
+                    break;
+             case 4: if (soldado instanceof Coronel) { listaretorno.add(soldado);}
+                    break;
+            default:
+                  break;
+        }
+    }
+        
+        return (ArrayList<Soldado>) listaretorno;
+    }
+
     public static void setListaSoldados(ArrayList<Soldado> lista) {
         for (Soldado soldado : lista) {
             listaSoldados.add(soldado);

@@ -7,6 +7,7 @@ package interfaz_grafica;
 import java.util.ArrayList;
 
 import Militar.Soldados.Soldado;
+import Militar.Soldados.SoldadoRaso;
 
 /**
  *
@@ -117,12 +118,23 @@ public class interfaz_mostrar_informacion extends javax.swing.JFrame {
         Teniente_radioButton.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         Teniente_radioButton.setForeground(new java.awt.Color(255, 255, 255));
         Teniente_radioButton.setText("Teniente");
+        Teniente_radioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Teiente_radioButtonActionPerformed(evt);
+            }
+        });
+
         Panel_menu.add(Teniente_radioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 106, 70));
 
         buttonGroup2.add(Capitan_radioButton);
         Capitan_radioButton.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         Capitan_radioButton.setForeground(new java.awt.Color(255, 255, 255));
         Capitan_radioButton.setText("Capitan");
+        Capitan_radioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Capitan_radioButtonActionPerformed(evt);
+            }
+        });
         Panel_menu.add(Capitan_radioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 106, 70));
 
         buttonGroup2.add(Coronel_radioButton);
@@ -161,24 +173,32 @@ public class interfaz_mostrar_informacion extends javax.swing.JFrame {
     }//GEN-LAST:event_Entrada_codigoActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        /*codigo aqui */
+        interfaz.update();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        /*codigo aqui */
+       interfaz.mostrarsoldado(Entrada_codigo.getText().trim(), listaSoldados);
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        interfaz.update();
         this.dispose();
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void Soldado_raso_radioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Soldado_raso_radioButtonActionPerformed
-        /*codigo aqui */
+      interfaz.update2(interfaz.filtrar(listaSoldados,1));
     }//GEN-LAST:event_Soldado_raso_radioButtonActionPerformed
-
+    private void Teiente_radioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Soldado_raso_radioButtonActionPerformed
+        interfaz.update2(interfaz.filtrar(listaSoldados,2));
+      }//GEN-LAST:event_Soldado_raso_radioButtonActionPerformed
+      private void Capitan_radioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Soldado_raso_radioButtonActionPerformed
+        interfaz.update2(interfaz.filtrar(listaSoldados,3));
+      }//GEN-LAST:event_Soldado_raso_radioButtonActionPerformed
+  
     private void Coronel_radioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Coronel_radioButtonActionPerformed
-        /*codigo aqui */
+        interfaz.update2(interfaz.filtrar(listaSoldados,4));
     }//GEN-LAST:event_Coronel_radioButtonActionPerformed
 
     /**
