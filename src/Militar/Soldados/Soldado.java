@@ -69,4 +69,5 @@ public class Soldado {
     public String toString() {
         return "Soldado [Nombre=" + nombre + ", ID=" + id + ", Rango=" + rango + "]";
     }
+    
 }

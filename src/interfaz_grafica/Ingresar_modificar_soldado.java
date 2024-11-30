@@ -1,10 +1,6 @@
 package interfaz_grafica;
 
 import java.util.ArrayList;
-<<<<<<< HEAD
-
-=======
->>>>>>> 5ec7a00 (Se arreglo y se mejoro la implementacion en modificar y crear, falta mas cosas)
 import javax.swing.JOptionPane;
 import Militar.Soldados.Soldado;
 import Militar.Soldados.SoldadoRaso;
@@ -17,12 +13,8 @@ import Militar.Soldados.Coronel;
  * @author Miguel
  */
 public class Ingresar_modificar_soldado extends javax.swing.JFrame {
-<<<<<<< HEAD
     // Instancia del controlador
     public static ArrayList<Soldado> listaSoldados = new ArrayList<>(); 
-=======
-    public static ArrayList<Soldado> listaSoldados = new ArrayList<>();
->>>>>>> 5ec7a00 (Se arreglo y se mejoro la implementacion en modificar y crear, falta mas cosas)
     public interfaz_principal interfaz;
 
     /**
@@ -153,13 +145,9 @@ public class Ingresar_modificar_soldado extends javax.swing.JFrame {
                 "No se encontró un soldado con el ID: " + idBuscado,
                 "Búsqueda Fallida", JOptionPane.ERROR_MESSAGE);
         }
+        interfaz.update();
     }
 
-<<<<<<< HEAD
-    private void boton_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_buscarActionPerformed
-       
-    }//GEN-LAST:event_boton_buscarActionPerformed
-=======
     private void boton_subir_rangoActionPerformed(java.awt.event.ActionEvent evt) {
         String idBuscado = entrada_id_soldado.getText().trim();
         Soldado soldado = buscarSoldadoPorID(idBuscado);
@@ -179,6 +167,7 @@ public class Ingresar_modificar_soldado extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "No puede subir más el rango.");
         }
+        interfaz.update();
     }
 
     private void boton_bajar_rangoActionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,6 +189,7 @@ public class Ingresar_modificar_soldado extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "No puede bajar más el rango.");
         }
+        interfaz.update();
     }
 
     private void boton_modificar_atributoActionPerformed(java.awt.event.ActionEvent evt) {
@@ -223,8 +213,8 @@ public class Ingresar_modificar_soldado extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "No se encontró el soldado para modificar.");
         }
+        interfaz.update();
     }
->>>>>>> 5ec7a00 (Se arreglo y se mejoro la implementacion en modificar y crear, falta mas cosas)
 
     private Soldado buscarSoldadoPorID(String id) {
         for (Soldado soldado : listaSoldados) {
@@ -243,7 +233,9 @@ public class Ingresar_modificar_soldado extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Ingresar_modificar_soldado().setVisible(true);
+                
             }
+            
         });
     }
 

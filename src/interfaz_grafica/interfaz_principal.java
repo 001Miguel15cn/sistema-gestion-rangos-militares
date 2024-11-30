@@ -27,6 +27,7 @@ public class interfaz_principal extends javax.swing.JFrame {
     boolean control2 = true;
     boolean control3 = true;
     public static ArrayList<Soldado> listaSoldados = new ArrayList<>(); 
+    public static ArrayList<Soldado> listaSoldadosDefecto = new ArrayList<>();
     /**
      * Creates new form interfaz_principal
      */
@@ -40,8 +41,7 @@ public class interfaz_principal extends javax.swing.JFrame {
         }
         } catch (Exception ex) {
             ex.printStackTrace();
-        }
-
+        } 
     initComponents();
     
     
@@ -77,6 +77,49 @@ public class interfaz_principal extends javax.swing.JFrame {
         lista_de_soldado.repaint();
 
     }
+    public static void setListaSoldados(ArrayList<Soldado> lista) {
+        for (Soldado soldado : lista) {
+            listaSoldados.add(soldado);
+
+        }
+    }
+
+
+    public static void setListaSoldadosDefecto(ArrayList<Soldado> lista) {
+        for (Soldado soldado : lista) {
+            listaSoldadosDefecto.add(soldado);
+
+        }
+
+        }
+
+        public static <T> ArrayList<T> obtenerDiferencia(ArrayList<T> lista1, ArrayList<T> lista2) {
+            ArrayList<T> diferencia = new ArrayList<>(lista1);
+            diferencia.removeAll(lista2);
+            return diferencia;
+        }
+
+    public void defecto(){
+        for (Soldado soldado : obtenerDiferencia(listaSoldados,listaSoldadosDefecto)) {
+            if (soldado instanceof SoldadoRaso) {
+                ((SoldadoRaso)soldado).remove();
+                }
+            if (soldado instanceof Teniente) {
+                ((Teniente)soldado).remove();
+                }
+            if (soldado instanceof Capitan) {
+                 ((Capitan)soldado).remove();
+                }
+            if (soldado instanceof Coronel) {
+                  ((Coronel)soldado).remove();
+                }
+        }
+        listaSoldados.clear();
+        listaSoldados.addAll(listaSoldadosDefecto);
+        System.gc();
+    }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -445,7 +488,8 @@ public class interfaz_principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_resetearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_resetearActionPerformed
-        // /*codigo aqui */
+        defecto();
+        update();
     }//GEN-LAST:event_boton_resetearActionPerformed
 
     private void entrada_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_codigoActionPerformed

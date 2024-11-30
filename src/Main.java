@@ -12,7 +12,6 @@ public class Main {
     public static void main(String[] args) {
        
         interfaz_principal interfaz = new interfaz_principal();
-        interfaz.listaSoldados = soldados;
         interfaz.setVisible(true);
        
         
@@ -39,6 +38,8 @@ public class Main {
         soldados.add(teniente1);
         soldados.add(capitan1);
         soldados.add(coronel1);
+        interfaz.setListaSoldados(soldados);
+        interfaz.setListaSoldadosDefecto(soldados);
         interfaz.update();
         String mayorID = "S000";
 
