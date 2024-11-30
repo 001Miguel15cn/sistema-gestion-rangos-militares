@@ -6,12 +6,10 @@ import Militar.Soldados.Soldado;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import interfaz_grafica.interfaz_principal;
+import interfaz_grafica.interfaz_principal;import interfaz_grafica.interfaz_principal;
 public class Main {
+    static ArrayList<Soldado> soldados = new ArrayList<>();
     public static void main(String[] args) {
-        interfaz_principal interfaz = new interfaz_principal();
-        interfaz.setVisible(true);
-        
 
 
         SoldadoRaso soldado1 = new SoldadoRaso("Juan", "S001");
@@ -28,14 +26,14 @@ public class Main {
         coronel1.setEstrategia("proteger una region clave");
 
         // Lista de soldados
-        ArrayList<Soldado> soldados = new ArrayList<>();
+       
         soldados.add(soldado1);
         soldados.add(soldado2);
         soldados.add(soldado3);
         soldados.add(teniente1);
         soldados.add(capitan1);
         soldados.add(coronel1);
-
+        interfaz.update();
         String mayorID = "S000";
 
         // Uso de try-with-resources para gestionar el Scanner

@@ -3,12 +3,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaz_grafica;
+<<<<<<< HEAD
+=======
+
+import java.util.ArrayList;
+
+import Militar.Soldados.Soldado;
+
+>>>>>>> a0e67633d783f4c4475110340ebd6682e3efeada
 /**
  *
  * @author Miguel
  */
 public class interfaz_mostrar_informacion extends javax.swing.JFrame {
+<<<<<<< HEAD
 
+=======
+    public static ArrayList<Soldado> listaSoldados = new ArrayList<>(); 
+    public interfaz_principal interfaz;
+>>>>>>> a0e67633d783f4c4475110340ebd6682e3efeada
     /**
      * Creates new form interfaz_mostrar_informacion
      */
@@ -151,15 +164,15 @@ public class interfaz_mostrar_informacion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Entrada_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Entrada_codigoActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_Entrada_codigoActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -168,11 +181,11 @@ public class interfaz_mostrar_informacion extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void Soldado_raso_radioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Soldado_raso_radioButtonActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_Soldado_raso_radioButtonActionPerformed
 
     private void Coronel_radioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Coronel_radioButtonActionPerformed
-        // TODO add your handling code here:
+        /*codigo aqui */
     }//GEN-LAST:event_Coronel_radioButtonActionPerformed
 
     /**

@@ -1,5 +1,7 @@
 package Militar.Soldados;
 
+import java.util.ArrayList;
+
 import Militar.rangos.rango;
 import Operaciones.OperacionesMilitares;
 
@@ -8,11 +10,13 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares{
     public static int cantidad = 0;
     
     public SoldadoRaso(String nombre, String id) {
-        super(nombre, id);
+        super(nombre,"SoldadoRaso",id);
         setRango("Soldado Raso");
         cantidad++;
     }
 
+
+    
     @Override
     public String toString() {
         return "Soldado[ Nombre: " + getNombre() + ", Id: " + getId() + ", Rango: "
@@ -28,6 +32,39 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares{
             rango.realizarAccion();
         }
 
+    @Override
+    public void patrullar() {
+        // Imprime la forma de patrullar del soldado raso
+        System.out.println("El soldado raso toma su rifle y se lanza al campo de batalla a realizar un reconocimiento");
+    }
+
+    @Override
+    public void saludar() {
+        // comprueba si el soldado razo tiene un nombre definido y si no esta vacio este parametro
+        if (getNombre() != null && !getNombre().isEmpty()) {
+            // Convertir el nombre a minúsculas para evitar problemas con mayúsculas/minúsculas
+            String nombreEnMinusula = getNombre().toLowerCase();
+            // Obtener la primera y última letra
+            char primeraLetra = nombreEnMinusula.charAt(0);
+            char ultimaLetra = nombreEnMinusula.charAt(nombreEnMinusula.length() - 1);
+            // Comparar si la primera y la última letra son iguales
+            if (primeraLetra == ultimaLetra) {
+                System.out.println("El soldado raso " + getNombre() + " se pone en postura y hace una señal de respeto");
+            } else {
+                System.out.println("El soldado raso " + getNombre() + " olvido ponerle el seguro a su arma y se disparo al pie mientras intentaba hacer su rutina de saludo");
+            }
+        } else {
+            System.out.println("El soldado raso no tiene un nombre definido");
+        }       
+    }
+
+    @Override
+    public void regañado(ArrayList<Soldado> soldados) {
+            // El soldado razo sera expulsado directamente ya que no puede bajar más de rango
+            System.out.println("El soldado raso " + getNombre() + " ha sido expulsado debido a su mal desempeño en su labor");
+            soldados.remove(this); // Es eliminado de la lista
+    }
+
     private class SoldadoRaso_rango extends rango{
         int nivel;
         String unidad;
@@ -38,23 +75,23 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares{
         
         @Override
         public void setNivel(int nivel) {
-            // TODO Auto-generated method stub
+            
                 this.nivel = nivel;
         }
         @Override
         public void setUnidad(String unidad) {
-            // TODO Auto-generated method stub
+            
                 this.unidad = unidad;
 
         }
         @Override
         public int getNivel() {
-            // TODO Auto-generated method stub
+            
             return nivel;
         }
         @Override
         public String getUnidad() {
-            // TODO Auto-generated method stub
+            
             return unidad;
         }
 
@@ -69,11 +106,13 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares{
     }
 
     @Override
-    public void mostrarInformacion(){
-         System.out.println("");
-         System.out.println("Soldado[ Nombre: " + getNombre() + ", Id: " + getId() + ", Rango: "
-                + getRango() + ", nivel: " + rango.getNivel() + ", unidad: " + rango.getUnidad() + "]");
-         
+    public String mostrarInformacion(){
+         //System.out.println("");
+        // System.out.println("Soldado[ Nombre: " + getNombre() + ", Id: " + getId() + ", Rango: "
+               // + getRango() + ", nivel: " + rango.getNivel() + ", unidad: " + rango.getUnidad() + "]");
+
+         return "Soldado[ Nombre: " + getNombre() + ", Id: " + getId() + ", Rango: "
+                + getRango() + ", nivel: " + rango.getNivel() + ", unidad: " + rango.getUnidad() + "]";
          
     }
 

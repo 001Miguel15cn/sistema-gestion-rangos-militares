@@ -1,16 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
 package interfaz_grafica;
 
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+import Militar.Soldados.Soldado;
 
 /**
  *
  * @author Miguel
  */
 public class Ingresar_modificar_soldado extends javax.swing.JFrame {
+    // Instancia del controlador
+    public static ArrayList<Soldado> listaSoldados = new ArrayList<>(); 
+    public interfaz_principal interfaz;
 
     /**
      * Creates new form Modificar_soldado
@@ -100,11 +102,19 @@ public class Ingresar_modificar_soldado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrada_id_soldadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_id_soldadoActionPerformed
-        // TODO add your handling code here:
+        String idSoldado = entrada_id_soldado.getText().trim();
+        if (!idSoldado.isEmpty()) {
+            // Muestra el mensaje indicando que se va a modificar el soldado con ese ID
+            JOptionPane.showMessageDialog(this, "Vas a modificar el soldado con ID: " + idSoldado, 
+                                          "Modificar Soldado", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese un ID válido",
+                                          "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_entrada_id_soldadoActionPerformed
 
     private void boton_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_buscarActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_boton_buscarActionPerformed
 
     private void boton_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_volverActionPerformed
