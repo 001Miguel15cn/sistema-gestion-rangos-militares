@@ -7,6 +7,8 @@ package interfaz_grafica;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.AbstractListModel;
+import javax.swing.JOptionPane;
+
 import Militar.Soldados.Capitan;
 import Militar.Soldados.Coronel;
 import Militar.Soldados.Soldado;
@@ -14,6 +16,7 @@ import Militar.Soldados.SoldadoRaso;
 import Militar.Soldados.Teniente;
 
 import java.awt.Color;
+import java.rmi.server.ExportException;
 import java.util.ArrayList;
 
 
@@ -165,6 +168,11 @@ public class interfaz_principal extends javax.swing.JFrame {
 
         Boton_regañar_soldado.setText("regañar soldado");
         panel_menu_de_gestion.add(Boton_regañar_soldado);
+        Boton_regañar_soldado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Boton_regañar_soldadoActionPerformed(evt);
+            }
+        });
 
         Boton_reportar_estado.setText("reportarEstado");
         Boton_reportar_estado.addActionListener(new java.awt.event.ActionListener() {
@@ -176,6 +184,11 @@ public class interfaz_principal extends javax.swing.JFrame {
 
         Boton_relizar_accion.setText("realizar accion");
         panel_menu_de_gestion.add(Boton_relizar_accion);
+        Boton_relizar_accion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Boton_realizar_accionActionPerformed(evt);
+            }
+        });
 
         Boton_asignar_mision.setText("Asignar mision");
         Boton_asignar_mision.addActionListener(new java.awt.event.ActionListener() {
@@ -527,7 +540,7 @@ public class interfaz_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_editar_soldadoActionPerformed
 
     private void Soldados_rasos_totalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Soldados_rasos_totalesActionPerformed
-        /*codigo aqui */
+
     }//GEN-LAST:event_Soldados_rasos_totalesActionPerformed
 
     private void Tenientes_totalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tenientes_totalesActionPerformed
@@ -543,8 +556,51 @@ public class interfaz_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_Capitanes_totalesActionPerformed
 
     private void Boton_patrullarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_patrullarActionPerformed
-        /*codigo aqui */
+        // Se obtiene el indice del soldado seleccionado
+        try{
+            int index = lista_de_soldado.getSelectedIndex();
+                // Se obtiene el soldado seleccionado
+            Soldado soldado = listaSoldados.get(index);
+            // Se asigna la mision de patrullar al soldado
+            JOptionPane.showMessageDialog(rootPane, soldado.patrullar());
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(rootPane, "Seleccione un soldado");
+        }
+        
+
+
     }//GEN-LAST:event_Boton_patrullarActionPerformed
+
+    private void Boton_regañar_soldadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_regañar_soldadoActionPerformed
+        System.out.println("Boton_regañar_soldadoActionPerformed");
+        // Se obtiene el indice del soldado seleccionado
+        try{
+            int index = lista_de_soldado.getSelectedIndex();
+            // Se obtiene el soldado seleccionado
+            Soldado soldado = listaSoldados.get(index);
+            // Se asigna la mision de regañar soldado al soldado
+            JOptionPane.showMessageDialog(rootPane, soldado.regañado(listaSoldados));
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(rootPane, "Seleccione un soldado o soldado incompleto");
+        }
+    }//GEN-LAST:event_Boton_regañar_soldadoActionPerformed
+
+    private void Boton_realizar_accionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_realizar_accionActionPerformed
+        System.out.println("Boton_realizar_accionActionPerformed");
+        // Se obtiene el indice del soldado seleccionado
+        try{
+            int index = lista_de_soldado.getSelectedIndex();
+            // Se obtiene el soldado seleccionado
+            Soldado soldado = listaSoldados.get(index);
+            // Se asigna la mision de realizar accion al soldado
+            JOptionPane.showMessageDialog(rootPane, soldado.realizarAccion());
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(rootPane, "Seleccione un soldado o soldado incompleto");
+        }
+    } //GEN-LAST:event_Boton_realizar_accionActionPerformed
 
     private void CDEActionPerformed(java.awt.event.ActionEvent evt) {
         try {

@@ -21,14 +21,15 @@ public class Teniente extends Soldado implements OperacionesMilitares{
         rango.setUnidad(unidad);
          }
   
-    public void realizarAccion(){
-            rango.realizarAccion();
+    public String realizarAccion(){
+            return rango.realizarAccion();
         }
 
     @Override
-    public void patrullar() {
+    public String patrullar() {
         // Imprime la forma de patrullar del teniente
         System.out.println("El teniente se pone un traje de camuflaje y se adelanta al campo de combate para realizar una operacion especial para reconocer los enemigos en el terreno");
+        return "El teniente se pone un traje de camuflaje y se adelanta al campo de combate para realizar una operacion especial para reconocer los enemigos en el terreno";
     }
 
     @Override
@@ -52,12 +53,13 @@ public class Teniente extends Soldado implements OperacionesMilitares{
     }
 
     @Override
-    public void regañado(ArrayList<Soldado> soldados) {
+    public String regañado(ArrayList<Soldado> soldados) {
         System.out.println("Ahora el teniente " + getNombre() + " es un soldado raso debido a su mal desempeño en su labor");
         SoldadoRaso soldadoBajado = new SoldadoRaso(getNombre(), getId());
         // Se reemplaza el teniente por el nuevo soldado raso en la lista
         soldados.remove(this);  // Elimina al teniente de la lista
         soldados.add(soldadoBajado);  // Agrega el nuevo soldado raso a la lista
+        return "Ahora el teniente " + getNombre() + " es un soldado raso debido a su mal desempeño en su labor";
     }
 
 
@@ -94,9 +96,8 @@ public class Teniente extends Soldado implements OperacionesMilitares{
         
 
         @Override
-        public void realizarAccion() {
-            System.out.println("");
-            System.out.println("El Teniente" + getNombre() + " con código " + getId() + " coordina a los soldados y supervisa las operaciones.");
+        public String realizarAccion() {
+            return "El Teniente" + getNombre() + " con código " + getId() + " coordina a los soldados y supervisa las operaciones.";
        
     }
 

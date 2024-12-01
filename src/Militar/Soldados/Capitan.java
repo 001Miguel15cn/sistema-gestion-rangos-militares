@@ -39,8 +39,9 @@ public class Capitan extends Soldado implements OperacionesMilitares {
 
     // Método sobrescrito para patrullaje
     @Override
-    public void patrullar() {
+    public String patrullar() {
         System.out.println("El capitan saca unos binoculares y reconoce el terreno.");
+        return "El capitan saca unos binoculares y reconoce el terreno.";
     }
 
     // Método sobrescrito para saludar
@@ -62,11 +63,12 @@ public class Capitan extends Soldado implements OperacionesMilitares {
 
     // Método sobrescrito para regañar
     @Override
-    public void regañado(ArrayList<Soldado> soldados) {
+    public String regañado(ArrayList<Soldado> soldados) {
         System.out.println("El capitan " + getNombre() + " ha sido bajado de rango a teniente debido a su mal desempeño en su labor.");
         Teniente soldadoBajado = new Teniente(getNombre(), getId());
         soldados.remove(this);  // Elimina al capitan de la lista
         soldados.add(soldadoBajado);  // Agrega el nuevo teniente a la lista
+        return "El capitan " + getNombre() + " ha sido bajado de rango a teniente debido a su mal desempeño en su labor.";
     }
 
     // Método para asignar la unidad
@@ -75,8 +77,10 @@ public class Capitan extends Soldado implements OperacionesMilitares {
     }
 
     // Método para realizar la acción del capitán
-    public void realizarAccion() {
-        rango.realizarAccion();
+    public String realizarAccion() {
+        return rango.realizarAccion();
+        
+        
     }
 
     // Implementación de los métodos de la interfaz OperacionesMilitares
@@ -128,8 +132,8 @@ public class Capitan extends Soldado implements OperacionesMilitares {
         }
 
         @Override
-        public void realizarAccion() {
-            System.out.println("El Capitán " + getNombre() + " coordina misiones y lidera estrategias.");
+        public String realizarAccion() {
+            return "El Capitán " + getNombre() + " coordina misiones y lidera estrategias.";
         }
     }
 

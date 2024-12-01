@@ -24,13 +24,15 @@ public class Coronel extends Soldado implements OperacionesMilitares {
         rango.setEstrategia(estrategia);
     }
 
-    public void realizarAccion(){
-        rango.realizarAccion();
+    public String realizarAccion(){
+        return rango.realizarAccion();
+        
     }
 
     @Override
-    public void patrullar() {
+    public String patrullar() {
         System.out.println("El coronel ordena a sus tropas un reconocimiento del area de combate mientras se toma un tinto en su oficina");
+        return "El coronel ordena a sus tropas un reconocimiento del area de combate mientras se toma un tinto en su oficina";
     }
 
     @Override
@@ -50,11 +52,13 @@ public class Coronel extends Soldado implements OperacionesMilitares {
     }
 
     @Override
-    public void regañado(ArrayList<Soldado> soldados) {
+    public String regañado(ArrayList<Soldado> soldados) {
         System.out.println("El coronel " + getNombre() + " ha sido bajado de rango a capitan debido a su mal desempeño en su labor");
         Capitan soldadoBajado = new Capitan(getNombre(), getId());
         soldados.remove(this);
         soldados.add(soldadoBajado);
+
+        return "El coronel " + getNombre() + " ha sido bajado de rango a capitan debido a su mal desempeño en su labor";
     }
 
     private class Coronel_rango extends rango {
@@ -97,11 +101,11 @@ public class Coronel extends Soldado implements OperacionesMilitares {
         }
 
         @Override
-        public void realizarAccion() {
+        public String realizarAccion() {
             if (estrategia == "sin estrategia") {
-                System.out.println("El Coronel " + getNombre() + " aún no ha establecido una estrategia");
+                return "El Coronel " + getNombre() + " aún no ha establecido una estrategia";
             } else {
-                System.out.println("El Coronel " + getNombre() + " está estableciendo la estrategia: " + estrategia);
+                return "El Coronel " + getNombre() + " está estableciendo la estrategia: " + estrategia;
             }
         }
     }
