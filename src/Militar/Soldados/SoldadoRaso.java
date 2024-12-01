@@ -138,4 +138,8 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares{
         System.out.println(" -proximidad del enemigo");
         
     }
+    
+    public static void remove(){
+        cantidad --;
+    }
 }

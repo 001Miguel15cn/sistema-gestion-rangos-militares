@@ -137,6 +137,9 @@ public class Teniente extends Soldado implements OperacionesMilitares{
         System.out.println(" -Necesidad de refuerzos o equipo adicional");
     }
 
+    public static void remove(){
+        cantidad --;
+    }
 
 
 }

@@ -133,4 +133,8 @@ public class Coronel extends Soldado implements OperacionesMilitares {
     public String toString() {
         return "Coronel [estrategia=" + rango.getEstrategia() + "]";
     }
+    
+    public static void remove(){
+        cantidad --;
+    }
 }

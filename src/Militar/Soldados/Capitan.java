@@ -138,4 +138,8 @@ public class Capitan extends Soldado implements OperacionesMilitares {
     public String toString() {
         return "Capitan [soldadosBajoMando=" + soldadosBajoMando + "]";
     }
+
+    public static void remove(){
+        cantidad --;
+    }
 }

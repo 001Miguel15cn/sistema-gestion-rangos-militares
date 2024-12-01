@@ -7,6 +7,8 @@ package interfaz_grafica;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.AbstractListModel;
+import javax.swing.JOptionPane;
+
 import Militar.Soldados.Capitan;
 import Militar.Soldados.Coronel;
 import Militar.Soldados.Soldado;
@@ -27,6 +29,7 @@ public class interfaz_principal extends javax.swing.JFrame {
     boolean control2 = true;
     boolean control3 = true;
     public static ArrayList<Soldado> listaSoldados = new ArrayList<>(); 
+    public static ArrayList<Soldado> listaSoldadosDefecto = new ArrayList<>();
     /**
      * Creates new form interfaz_principal
      */
@@ -40,8 +43,7 @@ public class interfaz_principal extends javax.swing.JFrame {
         }
         } catch (Exception ex) {
             ex.printStackTrace();
-        }
-
+        } 
     initComponents();
     
     
@@ -77,6 +79,126 @@ public class interfaz_principal extends javax.swing.JFrame {
         lista_de_soldado.repaint();
 
     }
+    public void mostrarsoldado(String Id,ArrayList<Soldado> lista){
+        int index = 0; 
+        String[] string = new String[listaSoldados.size()];
+        boolean control = false;
+        int count = 0;
+
+        for (Soldado soldado : lista) {
+            if (soldado.getId().equalsIgnoreCase(Id)){
+            string[index] = soldado.mostrarInformacion();
+            control = true;
+            break;}
+             else{
+                count++;
+             }
+         }
+
+        if (count == lista.size()){
+             JOptionPane.showMessageDialog(this, "No se encontró el soldado.");  
+        }
+        if (control){
+         lista_de_soldado.setModel(new javax.swing.AbstractListModel<String>() {
+             String[] strings = string;
+  
+  
+              
+              public int getSize() { return strings.length; }
+              public String getElementAt(int i) { return strings[i]; }
+          });
+ 
+       
+            lista_de_soldado.repaint();
+         }
+
+    }
+    public void update2(ArrayList<Soldado> lista){
+        int index = 0; 
+        String[] string = new String[listaSoldados.size()];
+
+        for (Soldado soldado : lista) {
+            string[index] = soldado.mostrarInformacion();
+            index++;
+         }
+         lista_de_soldado.setModel(new javax.swing.AbstractListModel<String>() {
+             String[] strings = string;
+  
+  
+              
+              public int getSize() { return strings.length; }
+              public String getElementAt(int i) { return strings[i]; }
+          });
+ 
+          
+         lista_de_soldado.repaint();
+ 
+
+    }
+
+    public static ArrayList<Soldado> filtrar(ArrayList<Soldado> lista, int valor){
+         ArrayList<Soldado> listaretorno = new ArrayList<>(); 
+         for (Soldado soldado : lista) {
+            switch(valor){
+             case 1: if (soldado instanceof SoldadoRaso){ listaretorno.add(soldado);}
+                     break;
+             case 2: if (soldado instanceof Teniente) { listaretorno.add(soldado);}
+                     break;
+             case 3: if (soldado instanceof Capitan){ listaretorno.add(soldado);}
+                    break;
+             case 4: if (soldado instanceof Coronel) { listaretorno.add(soldado);}
+                    break;
+            default:
+                  break;
+        }
+    }
+        
+        return (ArrayList<Soldado>) listaretorno;
+    }
+
+    public static void setListaSoldados(ArrayList<Soldado> lista) {
+        for (Soldado soldado : lista) {
+            listaSoldados.add(soldado);
+
+        }
+    }
+
+
+    public static void setListaSoldadosDefecto(ArrayList<Soldado> lista) {
+        for (Soldado soldado : lista) {
+            listaSoldadosDefecto.add(soldado);
+
+        }
+
+        }
+
+        public static <T> ArrayList<T> obtenerDiferencia(ArrayList<T> lista1, ArrayList<T> lista2) {
+            ArrayList<T> diferencia = new ArrayList<>(lista1);
+            diferencia.removeAll(lista2);
+            return diferencia;
+        }
+
+    public void defecto(){
+        for (Soldado soldado : obtenerDiferencia(listaSoldados,listaSoldadosDefecto)) {
+            if (soldado instanceof SoldadoRaso) {
+                ((SoldadoRaso)soldado).remove();
+                }
+            if (soldado instanceof Teniente) {
+                ((Teniente)soldado).remove();
+                }
+            if (soldado instanceof Capitan) {
+                 ((Capitan)soldado).remove();
+                }
+            if (soldado instanceof Coronel) {
+                  ((Coronel)soldado).remove();
+                }
+        }
+        listaSoldados.clear();
+        listaSoldados.addAll(listaSoldadosDefecto);
+        System.gc();
+    }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -445,7 +567,8 @@ public class interfaz_principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_resetearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_resetearActionPerformed
-        // /*codigo aqui */
+        defecto();
+        update();
     }//GEN-LAST:event_boton_resetearActionPerformed
 
     private void entrada_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_codigoActionPerformed
