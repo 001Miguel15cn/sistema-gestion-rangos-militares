@@ -7,6 +7,8 @@ package interfaz_grafica;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.AbstractListModel;
+import javax.swing.JOptionPane;
+
 import Militar.Soldados.Capitan;
 import Militar.Soldados.Coronel;
 import Militar.Soldados.Soldado;
@@ -26,7 +28,10 @@ public class interfaz_principal extends javax.swing.JFrame {
     boolean control = true;
     boolean control2 = true;
     boolean control3 = true;
+    boolean control4 = true;
+    boolean control5 = true;
     public static ArrayList<Soldado> listaSoldados = new ArrayList<>(); 
+    public static ArrayList<Soldado> listaSoldadosDefecto = new ArrayList<>();
     /**
      * Creates new form interfaz_principal
      */
@@ -40,8 +45,7 @@ public class interfaz_principal extends javax.swing.JFrame {
         }
         } catch (Exception ex) {
             ex.printStackTrace();
-        }
-
+        } 
     initComponents();
     
     
@@ -77,6 +81,126 @@ public class interfaz_principal extends javax.swing.JFrame {
         lista_de_soldado.repaint();
 
     }
+    public void mostrarsoldado(String Id,ArrayList<Soldado> lista){
+        int index = 0; 
+        String[] string = new String[listaSoldados.size()];
+        boolean control = false;
+        int count = 0;
+
+        for (Soldado soldado : lista) {
+            if (soldado.getId().equalsIgnoreCase(Id)){
+            string[index] = soldado.mostrarInformacion();
+            control = true;
+            break;}
+             else{
+                count++;
+             }
+         }
+
+        if (count == lista.size()){
+             JOptionPane.showMessageDialog(this, "No se encontró el soldado.");  
+        }
+        if (control){
+         lista_de_soldado.setModel(new javax.swing.AbstractListModel<String>() {
+             String[] strings = string;
+  
+  
+              
+              public int getSize() { return strings.length; }
+              public String getElementAt(int i) { return strings[i]; }
+          });
+ 
+       
+            lista_de_soldado.repaint();
+         }
+
+    }
+    public void update2(ArrayList<Soldado> lista){
+        int index = 0; 
+        String[] string = new String[listaSoldados.size()];
+
+        for (Soldado soldado : lista) {
+            string[index] = soldado.mostrarInformacion();
+            index++;
+         }
+         lista_de_soldado.setModel(new javax.swing.AbstractListModel<String>() {
+             String[] strings = string;
+  
+  
+              
+              public int getSize() { return strings.length; }
+              public String getElementAt(int i) { return strings[i]; }
+          });
+ 
+          
+         lista_de_soldado.repaint();
+ 
+
+    }
+
+    public static ArrayList<Soldado> filtrar(ArrayList<Soldado> lista, int valor){
+         ArrayList<Soldado> listaretorno = new ArrayList<>(); 
+         for (Soldado soldado : lista) {
+            switch(valor){
+             case 1: if (soldado instanceof SoldadoRaso){ listaretorno.add(soldado);}
+                     break;
+             case 2: if (soldado instanceof Teniente) { listaretorno.add(soldado);}
+                     break;
+             case 3: if (soldado instanceof Capitan){ listaretorno.add(soldado);}
+                    break;
+             case 4: if (soldado instanceof Coronel) { listaretorno.add(soldado);}
+                    break;
+            default:
+                  break;
+        }
+    }
+        
+        return (ArrayList<Soldado>) listaretorno;
+    }
+
+    public static void setListaSoldados(ArrayList<Soldado> lista) {
+        for (Soldado soldado : lista) {
+            listaSoldados.add(soldado);
+
+        }
+    }
+
+
+    public static void setListaSoldadosDefecto(ArrayList<Soldado> lista) {
+        for (Soldado soldado : lista) {
+            listaSoldadosDefecto.add(soldado);
+
+        }
+
+        }
+
+        public static <T> ArrayList<T> obtenerDiferencia(ArrayList<T> lista1, ArrayList<T> lista2) {
+            ArrayList<T> diferencia = new ArrayList<>(lista1);
+            diferencia.removeAll(lista2);
+            return diferencia;
+        }
+
+    public void defecto(){
+        for (Soldado soldado : obtenerDiferencia(listaSoldados,listaSoldadosDefecto)) {
+            if (soldado instanceof SoldadoRaso) {
+                ((SoldadoRaso)soldado).remove();
+                }
+            if (soldado instanceof Teniente) {
+                ((Teniente)soldado).remove();
+                }
+            if (soldado instanceof Capitan) {
+                 ((Capitan)soldado).remove();
+                }
+            if (soldado instanceof Coronel) {
+                  ((Coronel)soldado).remove();
+                }
+        }
+        listaSoldados.clear();
+        listaSoldados.addAll(listaSoldadosDefecto);
+        System.gc();
+    }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -161,6 +285,11 @@ public class interfaz_principal extends javax.swing.JFrame {
         panel_menu_de_gestion.add(Boton_patrullar);
 
         Boton_saludar.setText("saludar");
+        Boton_saludar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Boton_saludarActionPerformed(evt);
+            }
+        });
         panel_menu_de_gestion.add(Boton_saludar);
 
         Boton_regañar_soldado.setText("regañar soldado");
@@ -445,7 +574,8 @@ public class interfaz_principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_resetearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_resetearActionPerformed
-        // /*codigo aqui */
+        defecto();
+        update();
     }//GEN-LAST:event_boton_resetearActionPerformed
 
     private void entrada_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_codigoActionPerformed
@@ -473,16 +603,110 @@ public class interfaz_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_mostrar_informacionActionPerformed
 
     private void Boton_asignar_misionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_asignar_misionActionPerformed
-        /*codigo aqui */
+        buscar(listaSoldados);
     }//GEN-LAST:event_Boton_asignar_misionActionPerformed
+
+    void buscar(ArrayList<Soldado> listaSoldados1){
+            String idSoldado = entrada_codigo.getText().trim();
+            String mision = entrada_mision.getText().trim();
+                for(Soldado i:listaSoldados1){
+                    String idDelSoldado = i.getId();
+                    if(idDelSoldado.equals(idSoldado)){
+          JOptionPane.showMessageDialog(this, i.asignarMision(mision), "Mision asignada al militar buscado", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                 }
+        }
 
     private void entrada_misionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_misionActionPerformed
         /*codigo aqui */
     }//GEN-LAST:event_entrada_misionActionPerformed
 
     private void Boton_reportar_estadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_reportar_estadoActionPerformed
-        /*codigo aqui */
-    }//GEN-LAST:event_Boton_reportar_estadoActionPerformed
+        buscar1(listaSoldados);}
+    //GEN-LAST:event_Boton_reportar_estadoActionPerformed
+
+    void buscar1(ArrayList<Soldado> listaSoldados1){
+        if (control5){
+        String idSoldado = entrada_codigo.getText().trim();
+            for(Soldado i:listaSoldados1){
+                String idDelSoldado = i.getId();
+                String Rango = i.getRango();
+                if(idDelSoldado.equals(idSoldado)){
+                    if (Rango.equals("Coronel")) {
+                        ReportarEstadoCoronel reportarestadocoronel = new ReportarEstadoCoronel();
+                        reportarestadocoronel.interfaz = this;
+                        //escuchar cuando la ventana se cierre para establecer en true la variable de control
+                        reportarestadocoronel.addWindowListener(new java.awt.event.WindowAdapter() {
+                        @Override
+                        public void windowClosed(java.awt.event.WindowEvent e) {
+                        control5 = true; // Cambiar control a true cuando la ventana sea cerrada
+                    }
+                    });
+    
+                        reportarestadocoronel.setVisible(true);
+                        control5 = false;}
+
+                    else if (Rango.equals("Capitan")) {
+                        ReportarEstadoCapitan_Interfaz reportarestadocapitaninterfaz = new ReportarEstadoCapitan_Interfaz();
+                        reportarestadocapitaninterfaz.interfaz = this;
+                        //escuchar cuando la ventana se cierre para establecer en true la variable de control
+                        reportarestadocapitaninterfaz.addWindowListener(new java.awt.event.WindowAdapter() {
+                        @Override
+                        public void windowClosed(java.awt.event.WindowEvent e) {
+                        control5 = true; // Cambiar control a true cuando la ventana sea cerrada
+                    }
+                    });
+    
+                        reportarestadocapitaninterfaz.setVisible(true);
+                        control5 = false;}
+
+                    else if(Rango.equals("Teniente")){
+                        ReportarEstadoTeniente_Interfaz reportarestadotenienteinterfaz = new ReportarEstadoTeniente_Interfaz();
+                        reportarestadotenienteinterfaz.interfaz = this;
+                        //escuchar cuando la ventana se cierre para establecer en true la variable de control
+                        reportarestadotenienteinterfaz.addWindowListener(new java.awt.event.WindowAdapter() {
+                        @Override
+                        public void windowClosed(java.awt.event.WindowEvent e){
+                            control5 = true;
+                        }
+                        });
+                        
+                        reportarestadotenienteinterfaz.setVisible(true);
+                        control5 = false;}
+
+                    else if(Rango.equals("Soldado Raso")){
+                        ReportarEstadoSoldadoRaso_Interfaz reportarestadosoldadorasointerfaz = new ReportarEstadoSoldadoRaso_Interfaz();
+                        reportarestadosoldadorasointerfaz.interfaz = this;
+                        //escuchar cuando la ventana se cierre para establecer en true la variable de control
+                        reportarestadosoldadorasointerfaz.addWindowListener(new java.awt.event.WindowAdapter() {
+                        @Override
+                        public void windowClosed(java.awt.event.WindowEvent e){
+                            control5 = true;
+                        }
+                        });
+                            
+                        reportarestadosoldadorasointerfaz.setVisible(true);
+                        control5 = false;}    
+                }
+            }
+        }}
+
+    private void Boton_saludarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_reportar_estadoActionPerformed
+        if (control4){
+            Saludar_Interfaz saludar_Interfaz = new Saludar_Interfaz();
+            saludar_Interfaz.interfaz = this;
+             //escuchar cuando la ventana se cierre para establecer en true la variable de control
+             saludar_Interfaz.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosed(java.awt.event.WindowEvent e) {
+                    control4 = true; // Cambiar control a true cuando la ventana sea cerrada
+                }
+            });
+    
+            saludar_Interfaz.setVisible(true);
+            control4 = false;}
+        }
+    //GEN-LAST:event_Boton_reportar_estadoActionPerformed
 
     private void boton_crear_soldadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_crear_soldadoActionPerformed
         if (control) {
