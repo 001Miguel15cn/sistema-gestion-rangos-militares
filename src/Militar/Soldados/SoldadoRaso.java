@@ -41,23 +41,26 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares{
     }
 
     @Override
-    public void saludar() {
-        // comprueba si el soldado razo tiene un nombre definido y si no esta vacio este parametro
-        if (getNombre() != null && !getNombre().isEmpty()) {
-            // Convertir el nombre a minúsculas para evitar problemas con mayúsculas/minúsculas
-            String nombreEnMinusula = getNombre().toLowerCase();
-            // Obtener la primera y última letra
-            char primeraLetra = nombreEnMinusula.charAt(0);
-            char ultimaLetra = nombreEnMinusula.charAt(nombreEnMinusula.length() - 1);
-            // Comparar si la primera y la última letra son iguales
-            if (primeraLetra == ultimaLetra) {
-                System.out.println("El soldado raso " + getNombre() + " se pone en postura y hace una señal de respeto");
+    public String saludar() {
+        // Se inicializa una variable para el saludo
+        String saludo = "";  
+        // comprueba si el soldado raso tiene un nombre definido y si no esta vacio este parametro
+            if (getNombre() != null && !getNombre().isEmpty()) {
+                // Convertir el nombre a minúsculas para evitar problemas con mayúsculas/minúsculas
+                String nombreEnMinusula = getNombre().toLowerCase();
+                // Obtener la primera y última letra
+                char primeraLetra = nombreEnMinusula.charAt(0);
+                char ultimaLetra = nombreEnMinusula.charAt(nombreEnMinusula.length() - 1);
+                // Comparar si la primera y la última letra son iguales
+                if (primeraLetra == ultimaLetra) {
+                    saludo = "El soldado raso " + getNombre() + " se pone en postura y hace una señal de respeto";
+                } else {
+                saludo = "El soldado raso " + getNombre() + " olvido ponerle el seguro a su arma y se disparo al pie mientras intentaba hacer su rutina de saludo";
+                }
             } else {
-                System.out.println("El soldado raso " + getNombre() + " olvido ponerle el seguro a su arma y se disparo al pie mientras intentaba hacer su rutina de saludo");
+                saludo = "El soldado raso no tiene un nombre definido";
             }
-        } else {
-            System.out.println("El soldado raso no tiene un nombre definido");
-        }       
+        return saludo;  // Se retorna el saludo como un String
     }
 
     @Override
@@ -120,9 +123,9 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares{
     }
 
     @Override
-    public void asignarMision() {
-        System.out.println("");
-        System.out.println("se ha asignado una mision al soldado Raso");;
+    public String asignarMision(String mision) {
+        String misionAsignada = "El soldado raso " + getNombre() + " ha sido asignado a la mision " + mision;
+        return misionAsignada;
     }
 
     @Override
@@ -139,7 +142,6 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares{
         System.out.println(" -observaciones");
         System.out.println("");
         System.out.println(" -proximidad del enemigo");
-        
     }
     
     public static void remove(){

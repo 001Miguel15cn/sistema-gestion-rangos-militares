@@ -4,17 +4,24 @@
  */
 package interfaz_grafica;
 
+<<<<<<< HEAD
+=======
 import java.util.ArrayList;
 
 import Militar.Soldados.Soldado;
 
+>>>>>>> a0e67633d783f4c4475110340ebd6682e3efeada
 /**
  *
  * @author Miguel
  */
 public class Modificar_Coronel extends javax.swing.JFrame {
+<<<<<<< HEAD
+
+=======
     public static ArrayList<Soldado> listaSoldados = new ArrayList<>(); 
     public interfaz_principal interfaz;
+>>>>>>> a0e67633d783f4c4475110340ebd6682e3efeada
     /**
      * Creates new form Modificar_Coronel
      */
@@ -140,11 +147,19 @@ public class Modificar_Coronel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrada_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_nombreActionPerformed
+<<<<<<< HEAD
+        // TODO add your handling code here:
+    }//GEN-LAST:event_entrada_nombreActionPerformed
+
+    private void entrada_unidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_unidadActionPerformed
+        // TODO add your handling code here:
+=======
         /*codigo aqui */
     }//GEN-LAST:event_entrada_nombreActionPerformed
 
     private void entrada_unidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_unidadActionPerformed
         /*codigo aqui */
+>>>>>>> a0e67633d783f4c4475110340ebd6682e3efeada
     }//GEN-LAST:event_entrada_unidadActionPerformed
 
     private void boton_bajarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_bajarActionPerformed
@@ -152,6 +167,17 @@ public class Modificar_Coronel extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_bajarActionPerformed
 
     private void entrada_estrategiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_estrategiaActionPerformed
+<<<<<<< HEAD
+        // TODO add your handling code here:
+    }//GEN-LAST:event_entrada_estrategiaActionPerformed
+
+    private void boton_guardar_cambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_guardar_cambiosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boton_guardar_cambiosActionPerformed
+
+    private void boton_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_volverActionPerformed
+        // TODO add your handling code here:
+=======
         /*codigo aqui */
     }//GEN-LAST:event_entrada_estrategiaActionPerformed
 
@@ -161,6 +187,7 @@ public class Modificar_Coronel extends javax.swing.JFrame {
 
     private void boton_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_volverActionPerformed
         /*codigo aqui */
+>>>>>>> a0e67633d783f4c4475110340ebd6682e3efeada
     }//GEN-LAST:event_boton_volverActionPerformed
 
     /**
