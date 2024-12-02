@@ -6,6 +6,7 @@ import Militar.Soldados.Soldado;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
 import interfaz_grafica.interfaz_principal;
 public class Main {
     static ArrayList<Soldado> soldados = new ArrayList<>();
@@ -14,8 +15,6 @@ public class Main {
         interfaz_principal interfaz = new interfaz_principal();
         interfaz.setVisible(true);
        
-        
-
 
         SoldadoRaso soldado1 = new SoldadoRaso("Juan", "S001");
         SoldadoRaso soldado2 = new SoldadoRaso("Roberto", "S004");
