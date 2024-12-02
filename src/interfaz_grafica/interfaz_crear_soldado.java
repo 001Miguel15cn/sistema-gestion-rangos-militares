@@ -24,8 +24,21 @@ public class interfaz_crear_soldado extends javax.swing.JFrame {
         panel_menu = new javax.swing.JPanel();
         panel_de_campo_de_nombre = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        Entrada_nombre = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        boton_crear = new javax.swing.JButton();
+        boton_volver = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        Capitan_radioButton = new javax.swing.JRadioButton();
+        SoldadoRaso_radioButton = new javax.swing.JRadioButton();
+        Coronel_radioButton = new javax.swing.JRadioButton();
+        Teniente_radioButton = new javax.swing.JRadioButton();
+        setUndecorated(true);
+        setAlwaysOnTop(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 51));
 
+        panel_menu.setBackground(new java.awt.Color(0, 102, 51));
         panel_menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panel_de_campo_de_nombre.setBackground(new java.awt.Color(0, 102, 51));

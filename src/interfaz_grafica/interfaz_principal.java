@@ -51,7 +51,19 @@ public class interfaz_principal extends javax.swing.JFrame {
     
     
     }
-
+        //vuelve nulo el borde de las entradas que muestran el total de soldados
+        public void set_null_border(){
+            Soldados_rasos_totales.setBorder(null);
+            Tenientes_totales.setBorder(null);
+            Capitanes_totales.setBorder(null);
+            Coroneles_totales.setBorder(null);
+            Soldados_rasos_totales.repaint();
+            Tenientes_totales.repaint();
+            Capitanes_totales.repaint();
+            Coroneles_totales.repaint();
+    
+        }
+        //repitan la lista de soldados y la cantidad de soldados luego de cada registro
         public void update(){
         int index = 0; 
         String[] string = new String[listaSoldados.size()];
@@ -82,6 +94,7 @@ public class interfaz_principal extends javax.swing.JFrame {
         lista_de_soldado.repaint();
 
     }
+    //busca un soldado en espesicifo y lo pinta sobre la lista de soldados
     public void mostrarsoldado(String Id,ArrayList<Soldado> lista){
         int index = 0; 
         String[] string = new String[listaSoldados.size()];
@@ -116,6 +129,7 @@ public class interfaz_principal extends javax.swing.JFrame {
          }
 
     }
+    //recibe una lista y la dibuja en la lista de soldados
     public void update2(ArrayList<Soldado> lista){
         int index = 0; 
         String[] string = new String[listaSoldados.size()];
@@ -138,7 +152,7 @@ public class interfaz_principal extends javax.swing.JFrame {
  
 
     }
-
+    //filtra los soldados por rango y los asigna a una lista
     public static ArrayList<Soldado> filtrar(ArrayList<Soldado> lista, int valor){
          ArrayList<Soldado> listaretorno = new ArrayList<>(); 
          for (Soldado soldado : lista) {
@@ -176,7 +190,8 @@ public class interfaz_principal extends javax.swing.JFrame {
         }
 
 
-
+    //establece el valor por defecto de la cantidad de los soldados de cada clase y 
+    //pasa los soldados por defecto a la lista
     public void defecto(){
         SoldadoRaso.cantidad = 3;
         Teniente.cantidad = 1;
@@ -835,6 +850,7 @@ public class interfaz_principal extends javax.swing.JFrame {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
             UIManager.put("RadioButton.background", new Color(0, 102, 51)); // Fondo verde oscuro
             SwingUtilities.updateComponentTreeUI(this); // Actualiza la interfaz para aplicar el Look and Feel
+            set_null_border();
         } catch (Exception e) {
             e.printStackTrace(); // Manejo de errores si no se puede aplicar el Look and Feel
         }
@@ -846,6 +862,7 @@ public class interfaz_principal extends javax.swing.JFrame {
             UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
             UIManager.put("RadioButton.background", new Color(0, 102, 51)); // Fondo verde oscuro
             SwingUtilities.updateComponentTreeUI(this); // Actualiza la interfaz
+            set_null_border();
         } catch (Exception e) {
             e.printStackTrace(); // Manejo de errores
         }
@@ -856,6 +873,7 @@ public class interfaz_principal extends javax.swing.JFrame {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel");
             UIManager.put("RadioButton.background", new Color(0, 102, 51)); // Fondo verde oscuro
             SwingUtilities.updateComponentTreeUI(this); // Actualiza la interfaz
+            set_null_border();
         } catch (Exception e) {
             e.printStackTrace(); // Manejo de errores
         }
@@ -866,6 +884,7 @@ private void nimbusActionPerformed(java.awt.event.ActionEvent evt) {
         UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
         UIManager.put("RadioButton.background", new Color(0, 102, 51)); // Fondo verde oscuro
         SwingUtilities.updateComponentTreeUI(this); // Actualiza la interfaz
+        set_null_border();
     } catch (Exception e) {
         e.printStackTrace(); // Manejo de errores
     }
