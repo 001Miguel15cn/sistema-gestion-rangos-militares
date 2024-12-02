@@ -4,24 +4,17 @@
  */
 package interfaz_grafica;
 
-<<<<<<< HEAD
-=======
 import java.util.ArrayList;
 
 import Militar.Soldados.Soldado;
 
->>>>>>> a0e67633d783f4c4475110340ebd6682e3efeada
 /**
  *
  * @author Miguel
  */
 public class Modificar_Coronel extends javax.swing.JFrame {
-<<<<<<< HEAD
-
-=======
     public static ArrayList<Soldado> listaSoldados = new ArrayList<>(); 
     public interfaz_principal interfaz;
->>>>>>> a0e67633d783f4c4475110340ebd6682e3efeada
     /**
      * Creates new form Modificar_Coronel
      */
@@ -78,7 +71,7 @@ public class Modificar_Coronel extends javax.swing.JFrame {
         boton_volver.setText("volver");
         boton_volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton_volverActionPerformed(evt);
+                Boton_volverActionPerformed(evt);
             }
         });
         menu_panel.add(boton_volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 273, -1, 30));
@@ -147,19 +140,11 @@ public class Modificar_Coronel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrada_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_nombreActionPerformed
-<<<<<<< HEAD
-        // TODO add your handling code here:
-    }//GEN-LAST:event_entrada_nombreActionPerformed
-
-    private void entrada_unidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_unidadActionPerformed
-        // TODO add your handling code here:
-=======
         /*codigo aqui */
     }//GEN-LAST:event_entrada_nombreActionPerformed
 
     private void entrada_unidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_unidadActionPerformed
         /*codigo aqui */
->>>>>>> a0e67633d783f4c4475110340ebd6682e3efeada
     }//GEN-LAST:event_entrada_unidadActionPerformed
 
     private void boton_bajarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_bajarActionPerformed
@@ -167,35 +152,22 @@ public class Modificar_Coronel extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_bajarActionPerformed
 
     private void entrada_estrategiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_estrategiaActionPerformed
-<<<<<<< HEAD
+
         // TODO add your handling code here:
     }//GEN-LAST:event_entrada_estrategiaActionPerformed
 
     private void boton_guardar_cambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_guardar_cambiosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_boton_guardar_cambiosActionPerformed
-
-    private void boton_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_volverActionPerformed
-        // TODO add your handling code here:
-=======
-        /*codigo aqui */
-    }//GEN-LAST:event_entrada_estrategiaActionPerformed
-
-    private void boton_guardar_cambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_guardar_cambiosActionPerformed
-        /*codigo aqui */
-    }//GEN-LAST:event_boton_guardar_cambiosActionPerformed
-
-    private void boton_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_volverActionPerformed
-        /*codigo aqui */
->>>>>>> a0e67633d783f4c4475110340ebd6682e3efeada
-    }//GEN-LAST:event_boton_volverActionPerformed
+    private void Boton_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_volverActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_Boton_volverActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */

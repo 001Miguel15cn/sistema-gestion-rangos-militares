@@ -175,29 +175,18 @@ public class interfaz_principal extends javax.swing.JFrame {
 
         }
 
-        public static <T> ArrayList<T> obtenerDiferencia(ArrayList<T> lista1, ArrayList<T> lista2) {
-            ArrayList<T> diferencia = new ArrayList<>(lista1);
-            diferencia.removeAll(lista2);
-            return diferencia;
-        }
+
 
     public void defecto(){
-        for (Soldado soldado : obtenerDiferencia(listaSoldados,listaSoldadosDefecto)) {
-            if (soldado instanceof SoldadoRaso) {
-                ((SoldadoRaso)soldado).remove();
-                }
-            if (soldado instanceof Teniente) {
-                ((Teniente)soldado).remove();
-                }
-            if (soldado instanceof Capitan) {
-                 ((Capitan)soldado).remove();
-                }
-            if (soldado instanceof Coronel) {
-                  ((Coronel)soldado).remove();
-                }
-        }
+        SoldadoRaso.cantidad = 3;
+        Teniente.cantidad = 1;
+        Coronel.cantidad = 1;
+        Capitan.cantidad = 1;
+
+        
         listaSoldados.clear();
-        listaSoldados.addAll(listaSoldadosDefecto);
+        setListaSoldados(listaSoldadosDefecto);
+        //listaSoldados.addAll(listaSoldadosDefecto);
         System.gc();
     }
 
