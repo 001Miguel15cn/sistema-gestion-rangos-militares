@@ -34,19 +34,22 @@ public class Coronel extends Soldado implements OperacionesMilitares {
     }
 
     @Override
-    public void saludar() {
-        if (getNombre() != null && !getNombre().isEmpty()) {
-            String nombreEnMinusula = getNombre().toLowerCase();
-            char primeraLetra = nombreEnMinusula.charAt(0);
-            char ultimaLetra = nombreEnMinusula.charAt(nombreEnMinusula.length() - 1);
-            if (primeraLetra == ultimaLetra) {
-                System.out.println("El coronel " + getNombre() + " le prepara una tacita de cafe y le da un cordial saludo invitandolo a sentarse con el en su oficina");
+    public String saludar() {
+        // Se inicializa una variable para el saludo
+        String saludo = "";
+            if (getNombre() != null && !getNombre().isEmpty()) {
+                String nombreEnMinusula = getNombre().toLowerCase();
+                char primeraLetra = nombreEnMinusula.charAt(0);
+                char ultimaLetra = nombreEnMinusula.charAt(nombreEnMinusula.length() - 1);
+                if (primeraLetra == ultimaLetra) {
+                    saludo = "El coronel " + getNombre() + " le prepara una tacita de cafe y le da un cordial saludo invitandolo a sentarse con el en su oficina";
+                } else {
+                    saludo = "El coronel " + getNombre() + " se quema la lengua tomando cafe y lo saluda sacandole la lengua";
+                }
             } else {
-                System.out.println("El coronel " + getNombre() + " se quema la lengua tomando cafe y lo saluda sacandole la lengua");
-            }
-        } else {
-            System.out.println("El coronel no tiene un nombre definido");
-        }       
+                saludo = "El coronel no tiene un nombre definido";
+            } 
+        return saludo;  // Se retorna el saludo como un String    
     }
 
     @Override
@@ -114,8 +117,9 @@ public class Coronel extends Soldado implements OperacionesMilitares {
     }
 
     @Override
-    public void asignarMision() {
-        System.out.println("El Coronel " + getNombre() + " asigna una misión estratégica.");
+    public String asignarMision(String mision) {
+        String misionAsignada = "El Coronel " + getNombre() + " asigna una misión estratégica: " + mision;
+        return misionAsignada;
     }
 
     @Override

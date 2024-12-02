@@ -57,8 +57,8 @@ public class Soldado {
         System.out.println("El soldado " + nombre + " está patrullando.");
     }
 
-    public void saludar() {
-        System.out.println("El soldado " + nombre + " saluda.");
+    public String saludar() {
+        return "El soldado " + nombre + " saluda.";
     }
 
     public void regañado(ArrayList<Soldado> soldados) {
@@ -70,4 +70,7 @@ public class Soldado {
         return "Soldado [Nombre=" + nombre + ", ID=" + id + ", Rango=" + rango + "]";
     }
     
+    public String asignarMision(String mision){
+        return mision;
+    }
 }
