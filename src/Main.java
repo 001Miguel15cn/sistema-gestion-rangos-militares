@@ -6,11 +6,15 @@ import Militar.Soldados.Soldado;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import interfaz_grafica.interfaz_principal;import interfaz_grafica.interfaz_principal;
+
+import interfaz_grafica.interfaz_principal;
 public class Main {
     static ArrayList<Soldado> soldados = new ArrayList<>();
     public static void main(String[] args) {
-
+       
+        interfaz_principal interfaz = new interfaz_principal();
+        interfaz.setVisible(true);
+       
 
         SoldadoRaso soldado1 = new SoldadoRaso("Juan", "S001");
         SoldadoRaso soldado2 = new SoldadoRaso("Roberto", "S004");
@@ -33,6 +37,8 @@ public class Main {
         soldados.add(teniente1);
         soldados.add(capitan1);
         soldados.add(coronel1);
+        interfaz.setListaSoldados(soldados);
+        interfaz.setListaSoldadosDefecto(soldados);
         interfaz.update();
         String mayorID = "S000";
 

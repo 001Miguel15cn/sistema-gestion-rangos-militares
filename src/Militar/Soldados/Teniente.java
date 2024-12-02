@@ -32,23 +32,26 @@ public class Teniente extends Soldado implements OperacionesMilitares{
     }
 
     @Override
-    public void saludar() {
+    public String saludar() {
+        // Se inicializa una variable para el saludo
+        String saludo = "";
         // comprueba si el teniente tiene un nombre definido y si no esta vacio este parametro
-        if (getNombre() != null && !getNombre().isEmpty()) {
-            // Convertir el nombre a minúsculas para evitar problemas con mayúsculas/minúsculas
-            String nombreEnMinusula = getNombre().toLowerCase();
-            // Obtener la primera y última letra
-            char primeraLetra = nombreEnMinusula.charAt(0);
-            char ultimaLetra = nombreEnMinusula.charAt(nombreEnMinusula.length() - 1);
-            // Comparar si la primera y la última letra son iguales
-            if (primeraLetra == ultimaLetra) {
-                System.out.println("El teniente " + getNombre() + " hace un canto junto a su unidad para darle la bienvenida");
+            if (getNombre() != null && !getNombre().isEmpty()) {
+                // Convertir el nombre a minúsculas para evitar problemas con mayúsculas/minúsculas
+                String nombreEnMinusula = getNombre().toLowerCase();
+                // Obtener la primera y última letra
+                char primeraLetra = nombreEnMinusula.charAt(0);
+                char ultimaLetra = nombreEnMinusula.charAt(nombreEnMinusula.length() - 1);
+                // Comparar si la primera y la última letra son iguales
+                    if (primeraLetra == ultimaLetra) {
+                        saludo = "El teniente " + getNombre() + " hace un canto junto a su unidad para darle la bienvenida";
+                }    else {
+                        saludo = "El teniente " + getNombre() + " desafinó a la hora de cantar y toda su unidad se ríe de él arruinando el saludo";
+                    }
             } else {
-                System.out.println("El teniente " + getNombre() + " desafino a la hora de cantar y toda su unidad se rie de el arruinando el saludo");
+                saludo = "El teniente no tiene un nombre definido";
             }
-        } else {
-            System.out.println("El teniente no tiene un nombre definido");
-        }       
+        return saludo;  // Se retorna el saludo como un String
     }
 
     @Override
@@ -114,9 +117,9 @@ public class Teniente extends Soldado implements OperacionesMilitares{
     }
 
     @Override
-    public void asignarMision() {
-        System.out.println("");
-        System.out.println("se ha asignado una mision al Teniente");;
+    public String asignarMision(String mision) {
+        String misionAsignada = "El teniente " + getNombre() + " ha sido asignado a la mision " + mision;
+        return misionAsignada;
     }
 
     @Override
@@ -137,6 +140,9 @@ public class Teniente extends Soldado implements OperacionesMilitares{
         System.out.println(" -Necesidad de refuerzos o equipo adicional");
     }
 
+    public static void remove(){
+        cantidad --;
+    }
 
 
 }

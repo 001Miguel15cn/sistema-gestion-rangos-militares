@@ -170,7 +170,7 @@ public class interfaz_crear_soldado extends javax.swing.JFrame {
 
     private void boton_volverActionPerformed(java.awt.event.ActionEvent evt) {
         // Volver a la pantalla anterior
-        this.setVisible(false);
+        this.dispose();
     }
 
     private void Entrada_nombreActionPerformed(java.awt.event.ActionEvent evt) {

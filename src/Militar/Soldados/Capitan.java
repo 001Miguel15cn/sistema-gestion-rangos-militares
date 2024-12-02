@@ -45,19 +45,26 @@ public class Capitan extends Soldado implements OperacionesMilitares {
 
     // Método sobrescrito para saludar
     @Override
-    public void saludar() {
-        if (getNombre() != null && !getNombre().isEmpty()) {
-            String nombreEnMinuscula = getNombre().toLowerCase();
-            char primeraLetra = nombreEnMinuscula.charAt(0);
-            char ultimaLetra = nombreEnMinuscula.charAt(nombreEnMinuscula.length() - 1);
-            if (primeraLetra == ultimaLetra) {
-                System.out.println("El capitan " + getNombre() + " hace una voltereta en el aire y atrapa sus binoculares con la boca y luego te saluda con el pie.");
+    public String saludar() {
+        // Se inicializa una variable para el saludo
+        String saludo = "";
+        // comprueba si el teniente tiene un nombre definido y si no esta vacio este parametro
+            if (getNombre() != null && !getNombre().isEmpty()) {
+                // Convertir el nombre a minúsculas para evitar problemas con mayúsculas/minúsculas
+                String nombreEnMinuscula = getNombre().toLowerCase();
+                // Obtener la primera y última letra
+                char primeraLetra = nombreEnMinuscula.charAt(0);
+                char ultimaLetra = nombreEnMinuscula.charAt(nombreEnMinuscula.length() - 1);
+                // Comparar si la primera y la última letra son iguales
+                if (primeraLetra == ultimaLetra) {
+                    saludo = "El capitan " + getNombre() + " hace una voltereta en el aire y atrapa sus binoculares con la boca y luego te saluda con el pie.";
+                } else {
+                    saludo = "El capitan " + getNombre() + " intenta hacer una voltereta pero se cae y se rompe la espalda, te saluda con una carta desde el hospital.";
+                }
             } else {
-                System.out.println("El capitan " + getNombre() + " intenta hacer una voltereta pero se cae y se rompe la espalda, te saluda con una carta desde el hospital.");
+                saludo = "El capitan no tiene un nombre definido.";
             }
-        } else {
-            System.out.println("El capitan no tiene un nombre definido.");
-        }
+        return saludo; //Se retorna el saludo como un String
     }
 
     // Método sobrescrito para regañar
@@ -81,8 +88,9 @@ public class Capitan extends Soldado implements OperacionesMilitares {
 
     // Implementación de los métodos de la interfaz OperacionesMilitares
     @Override
-    public void asignarMision() {
-        System.out.println("El Capitán " + getNombre() + " asigna una misión táctica.");
+    public String asignarMision(String mision) {
+        String misionAsignada = "El Capitán " + getNombre() + " asigna a las tropas la mision tactica: " + mision;
+        return misionAsignada;
     }
 
     @Override
@@ -137,5 +145,9 @@ public class Capitan extends Soldado implements OperacionesMilitares {
     @Override
     public String toString() {
         return "Capitan [soldadosBajoMando=" + soldadosBajoMando + "]";
+    }
+
+    public static void remove(){
+        cantidad --;
     }
 }
