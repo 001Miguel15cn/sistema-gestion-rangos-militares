@@ -28,14 +28,16 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares{
 
         }
 
-    public void realizarAccion(){
-            rango.realizarAccion();
+    public String realizarAccion(){
+            return rango.realizarAccion();
         }
 
     @Override
-    public void patrullar() {
+    public String patrullar() {
         // Imprime la forma de patrullar del soldado raso
         System.out.println("El soldado raso toma su rifle y se lanza al campo de batalla a realizar un reconocimiento");
+        return "El soldado raso toma su rifle y se lanza al campo de batalla a realizar un reconocimiento";
+        
     }
 
     @Override
@@ -62,10 +64,11 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares{
     }
 
     @Override
-    public void regañado(ArrayList<Soldado> soldados) {
+    public String regañado(ArrayList<Soldado> soldados) {
             // El soldado razo sera expulsado directamente ya que no puede bajar más de rango
             System.out.println("El soldado raso " + getNombre() + " ha sido expulsado debido a su mal desempeño en su labor");
             soldados.remove(this); // Es eliminado de la lista
+            return "El soldado raso " + getNombre() + " ha sido expulsado debido a su mal desempeño en su labor";
     }
 
     private class SoldadoRaso_rango extends rango{
@@ -101,10 +104,10 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares{
         
 
         @Override
-        public void realizarAccion() {
-            System.out.println("");
-            System.out.println("El soldado" + getNombre() + " con código " + getId() + " está cumpliendo órdenes con determinación.");
+        public String realizarAccion() {
+            return "El soldado" + getNombre() + " con código " + getId() + " está cumpliendo órdenes con determinación.";
         }
+
        
     }
 

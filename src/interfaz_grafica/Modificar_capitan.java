@@ -47,7 +47,8 @@ public class Modificar_capitan extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
+        setUndecorated(true);
+        setAlwaysOnTop(true);
         menu_panel.setBackground(new java.awt.Color(0, 102, 51));
         menu_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

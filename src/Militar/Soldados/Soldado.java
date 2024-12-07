@@ -53,16 +53,21 @@ public class Soldado {
         return "Información del Soldado: " + this.toString();
     }
 
-    public void patrullar() {
+    public String patrullar() {
         System.out.println("El soldado " + nombre + " está patrullando.");
+        return "El soldado " + nombre + " está patrullando.";
     }
 
     public String saludar() {
         return "El soldado " + nombre + " saluda.";
     }
 
-    public void regañado(ArrayList<Soldado> soldados) {
+    public String regañado(ArrayList<Soldado> soldados) {
         System.out.println("El soldado " + nombre + " está siendo regañado.");
+        return "El soldado " + nombre + " está siendo regañado.";
+    }
+    public String realizarAccion() {
+        return "El soldado " + nombre + " está cumpliendo órdenes.";
     }
 
     @Override
