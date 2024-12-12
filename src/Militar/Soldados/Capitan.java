@@ -93,7 +93,7 @@ public class Capitan extends Soldado implements OperacionesMilitares {
     // Implementación de los métodos de la interfaz OperacionesMilitares
     @Override
     public String asignarMision(String mision) {
-        String misionAsignada = "El Capitán " + getNombre() + " asigna a las tropas la mision tactica: " + mision;
+        String misionAsignada = "El Capitán " + getNombre() + " asigna a las tropas la mision tactica: " + mision+"\n";
         return misionAsignada;
     }
 

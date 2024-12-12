@@ -124,7 +124,7 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares{
 
     @Override
     public String asignarMision(String mision) {
-        String misionAsignada = "El soldado raso " + getNombre() + " ha sido asignado a la mision " + mision;
+        String misionAsignada = "El soldado raso " + getNombre() + " ha sido asignado a la mision " + mision+"\n";
         return misionAsignada;
     }
 
