@@ -122,7 +122,7 @@ public class Coronel extends Soldado implements OperacionesMilitares {
 
     @Override
     public String asignarMision(String mision) {
-        String misionAsignada = "El Coronel " + getNombre() + " asigna una misión estratégica: " + mision;
+        String misionAsignada = "El Coronel " + getNombre() + " asigna una misión estratégica: " + mision +"\n";
         return misionAsignada;
     }
 

@@ -119,7 +119,7 @@ public class Teniente extends Soldado implements OperacionesMilitares{
 
     @Override
     public String asignarMision(String mision) {
-        String misionAsignada = "El teniente " + getNombre() + " ha sido asignado a la mision " + mision;
+        String misionAsignada = "El teniente " + getNombre() + " ha sido asignado a la mision " + mision+"\n";
         return misionAsignada;
     }
 
