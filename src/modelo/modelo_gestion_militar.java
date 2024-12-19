@@ -10,8 +10,9 @@ import Militar.Soldados.SoldadoRaso;
 import Militar.Soldados.Teniente;
 import Militar.misiones.Misiones;
 import controlador.Controlador;
+import controlador.Tipo_soldado;
 
-public class modelo_gestion_militar {
+public class Modelo_gestion_militar {
     private String mayorID = "S000";
     private ArrayList<Soldado> lista_soldados = new ArrayList<Soldado>();
     private ArrayList<Soldado> lista_soldados_defecto = new ArrayList<Soldado>();
@@ -149,7 +150,7 @@ public class modelo_gestion_militar {
       }
     }
     //recibe un iD retorna un soldado para entregarlo a otros metodos 
-    public Soldado Optener_soldado(String ID){
+    public Soldado obtener_soldado(String ID){
         Soldado soldadoAModificar = null;
         for (Soldado soldado : lista_soldados) {
             if (soldado.getId().equalsIgnoreCase(ID)) {
@@ -160,7 +161,7 @@ public class modelo_gestion_militar {
         return soldadoAModificar;
     }
     //retorna el downcasting del Soldado ingresado
-    public Object Optener_soldado_Clase(Soldado soldado) {
+    public Object obtener_soldado_Clase(Soldado soldado) {
         if (soldado instanceof SoldadoRaso) {
             return (SoldadoRaso) soldado;
         } else if (soldado instanceof Teniente) {
@@ -200,14 +201,24 @@ public class modelo_gestion_militar {
 
         }
     }
-    //recibe un coronel y modifica su estrategia
-    public void modificar_estrategia(Coronel soldado, String Strategia){
-        soldado.setEstrategia(Strategia);
+    //recibe un Soldado y si es un coronel modifica su estrategia
+    public void modificar_estrategia(Soldado soldado, String Strategia){
+        if (soldado instanceof Coronel) {
+            Coronel soldadoAmodificar = (Coronel) soldado;
+            soldadoAmodificar.setEstrategia(Strategia);
+        }   
     }
 
     //recibe un capitan y modificar su numero de soldados bajo mando
-    public void modificar_soldados_bajo_mando(Capitan soldado, int numero_soldados){
-        soldado.setSoldadosBajoMando(numero_soldados);
+    public void modificar_soldados_bajo_mando(Soldado soldado, int numero_soldados){
+        if (soldado instanceof Capitan) {
+            Capitan soldadoAmodificar = (Capitan) soldado;
+            soldadoAmodificar.setSoldadosBajoMando(numero_soldados);
+        }
+    }
+    //recibe un soldado y moficia su nombre
+    public void modificar_nombre(Soldado soldado,String nombre){
+        soldado.setNombre(nombre);
     }
 
     //recibe un soldado y lo sube de rango
