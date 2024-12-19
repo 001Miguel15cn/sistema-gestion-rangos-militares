@@ -16,7 +16,6 @@ import Militar.Soldados.SoldadoRaso;
 import Militar.Soldados.Teniente;
 
 import java.awt.Color;
-import java.rmi.server.ExportException;
 import java.util.ArrayList;
 
 
@@ -51,19 +50,7 @@ public class interfaz_principal extends javax.swing.JFrame {
     
     
     }
-        //vuelve nulo el borde de las entradas que muestran el total de soldados
-        public void set_null_border(){
-            Soldados_rasos_totales.setBorder(null);
-            Tenientes_totales.setBorder(null);
-            Capitanes_totales.setBorder(null);
-            Coroneles_totales.setBorder(null);
-            Soldados_rasos_totales.repaint();
-            Tenientes_totales.repaint();
-            Capitanes_totales.repaint();
-            Coroneles_totales.repaint();
-    
-        }
-        //repitan la lista de soldados y la cantidad de soldados luego de cada registro
+
         public void update(){
         int index = 0; 
         String[] string = new String[listaSoldados.size()];
@@ -94,7 +81,6 @@ public class interfaz_principal extends javax.swing.JFrame {
         lista_de_soldado.repaint();
 
     }
-    //busca un soldado en espesicifo y lo pinta sobre la lista de soldados
     public void mostrarsoldado(String Id,ArrayList<Soldado> lista){
         int index = 0; 
         String[] string = new String[listaSoldados.size()];
@@ -129,7 +115,6 @@ public class interfaz_principal extends javax.swing.JFrame {
          }
 
     }
-    //recibe una lista y la dibuja en la lista de soldados
     public void update2(ArrayList<Soldado> lista){
         int index = 0; 
         String[] string = new String[listaSoldados.size()];
@@ -152,7 +137,7 @@ public class interfaz_principal extends javax.swing.JFrame {
  
 
     }
-    //filtra los soldados por rango y los asigna a una lista
+
     public static ArrayList<Soldado> filtrar(ArrayList<Soldado> lista, int valor){
          ArrayList<Soldado> listaretorno = new ArrayList<>(); 
          for (Soldado soldado : lista) {
@@ -189,19 +174,29 @@ public class interfaz_principal extends javax.swing.JFrame {
 
         }
 
+        public static <T> ArrayList<T> obtenerDiferencia(ArrayList<T> lista1, ArrayList<T> lista2) {
+            ArrayList<T> diferencia = new ArrayList<>(lista1);
+            diferencia.removeAll(lista2);
+            return diferencia;
+        }
 
-    //establece el valor por defecto de la cantidad de los soldados de cada clase y 
-    //pasa los soldados por defecto a la lista
     public void defecto(){
-        SoldadoRaso.cantidad = 3;
-        Teniente.cantidad = 1;
-        Coronel.cantidad = 1;
-        Capitan.cantidad = 1;
-
-        
+        for (Soldado soldado : obtenerDiferencia(listaSoldados,listaSoldadosDefecto)) {
+            if (soldado instanceof SoldadoRaso) {
+                ((SoldadoRaso)soldado).remove();
+                }
+            if (soldado instanceof Teniente) {
+                ((Teniente)soldado).remove();
+                }
+            if (soldado instanceof Capitan) {
+                 ((Capitan)soldado).remove();
+                }
+            if (soldado instanceof Coronel) {
+                  ((Coronel)soldado).remove();
+                }
+        }
         listaSoldados.clear();
-        setListaSoldados(listaSoldadosDefecto);
-        //listaSoldados.addAll(listaSoldadosDefecto);
+        listaSoldados.addAll(listaSoldadosDefecto);
         System.gc();
     }
 
@@ -299,11 +294,6 @@ public class interfaz_principal extends javax.swing.JFrame {
 
         Boton_regañar_soldado.setText("regañar soldado");
         panel_menu_de_gestion.add(Boton_regañar_soldado);
-        Boton_regañar_soldado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Boton_regañar_soldadoActionPerformed(evt);
-            }
-        });
 
         Boton_reportar_estado.setText("reportarEstado");
         Boton_reportar_estado.addActionListener(new java.awt.event.ActionListener() {
@@ -315,11 +305,6 @@ public class interfaz_principal extends javax.swing.JFrame {
 
         Boton_relizar_accion.setText("realizar accion");
         panel_menu_de_gestion.add(Boton_relizar_accion);
-        Boton_relizar_accion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Boton_realizar_accionActionPerformed(evt);
-            }
-        });
 
         Boton_asignar_mision.setText("Asignar mision");
         Boton_asignar_mision.addActionListener(new java.awt.event.ActionListener() {
@@ -767,7 +752,7 @@ public class interfaz_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_editar_soldadoActionPerformed
 
     private void Soldados_rasos_totalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Soldados_rasos_totalesActionPerformed
-
+        /*codigo aqui */
     }//GEN-LAST:event_Soldados_rasos_totalesActionPerformed
 
     private void Tenientes_totalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tenientes_totalesActionPerformed
@@ -783,66 +768,8 @@ public class interfaz_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_Capitanes_totalesActionPerformed
 
     private void Boton_patrullarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_patrullarActionPerformed
-        // Se obtiene el indice del soldado seleccionado
-        try{
-            int index = lista_de_soldado.getSelectedIndex();
-                // Se obtiene el soldado seleccionado
-            Soldado soldado = listaSoldados.get(index);
-            // Se asigna la mision de patrullar al soldado
-            JOptionPane.showMessageDialog(rootPane, soldado.patrullar());
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(rootPane, "Seleccione un soldado");
-        }
-        
-
-
+        /*codigo aqui */
     }//GEN-LAST:event_Boton_patrullarActionPerformed
-
-    private void Boton_regañar_soldadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_regañar_soldadoActionPerformed
-        System.out.println("Boton_regañar_soldadoActionPerformed");
-        // Se obtiene el indice del soldado seleccionado
-        try{
-            int index = lista_de_soldado.getSelectedIndex();
-            // Se obtiene el soldado seleccionado
-            Soldado soldado = listaSoldados.get(index);
-            // Se asigna la mision de regañar soldado al soldado
-            JOptionPane.showMessageDialog(rootPane, soldado.regañado(listaSoldados));
-
-            if (soldado instanceof SoldadoRaso) {
-                ((SoldadoRaso)soldado).remove();
-                }
-            if (soldado instanceof Teniente) {
-                ((Teniente)soldado).remove();
-                }
-            if (soldado instanceof Capitan) {
-                 ((Capitan)soldado).remove();
-                }
-            if (soldado instanceof Coronel) {
-                  ((Coronel)soldado).remove();
-                }
-                
-            update();
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(rootPane, "Seleccione un soldado o soldado incompleto");
-        }
-    }//GEN-LAST:event_Boton_regañar_soldadoActionPerformed
-
-    private void Boton_realizar_accionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_realizar_accionActionPerformed
-        System.out.println("Boton_realizar_accionActionPerformed");
-        // Se obtiene el indice del soldado seleccionado
-        try{
-            int index = lista_de_soldado.getSelectedIndex();
-            // Se obtiene el soldado seleccionado
-            Soldado soldado = listaSoldados.get(index);
-            // Se asigna la mision de realizar accion al soldado
-            JOptionPane.showMessageDialog(rootPane, soldado.realizarAccion());
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(rootPane, "Seleccione un soldado o soldado incompleto");
-        }
-    } //GEN-LAST:event_Boton_realizar_accionActionPerformed
 
     private void CDEActionPerformed(java.awt.event.ActionEvent evt) {
         try {
@@ -850,7 +777,6 @@ public class interfaz_principal extends javax.swing.JFrame {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
             UIManager.put("RadioButton.background", new Color(0, 102, 51)); // Fondo verde oscuro
             SwingUtilities.updateComponentTreeUI(this); // Actualiza la interfaz para aplicar el Look and Feel
-            set_null_border();
         } catch (Exception e) {
             e.printStackTrace(); // Manejo de errores si no se puede aplicar el Look and Feel
         }
@@ -862,7 +788,6 @@ public class interfaz_principal extends javax.swing.JFrame {
             UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
             UIManager.put("RadioButton.background", new Color(0, 102, 51)); // Fondo verde oscuro
             SwingUtilities.updateComponentTreeUI(this); // Actualiza la interfaz
-            set_null_border();
         } catch (Exception e) {
             e.printStackTrace(); // Manejo de errores
         }
@@ -873,7 +798,6 @@ public class interfaz_principal extends javax.swing.JFrame {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel");
             UIManager.put("RadioButton.background", new Color(0, 102, 51)); // Fondo verde oscuro
             SwingUtilities.updateComponentTreeUI(this); // Actualiza la interfaz
-            set_null_border();
         } catch (Exception e) {
             e.printStackTrace(); // Manejo de errores
         }
@@ -884,7 +808,6 @@ private void nimbusActionPerformed(java.awt.event.ActionEvent evt) {
         UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
         UIManager.put("RadioButton.background", new Color(0, 102, 51)); // Fondo verde oscuro
         SwingUtilities.updateComponentTreeUI(this); // Actualiza la interfaz
-        set_null_border();
     } catch (Exception e) {
         e.printStackTrace(); // Manejo de errores
     }

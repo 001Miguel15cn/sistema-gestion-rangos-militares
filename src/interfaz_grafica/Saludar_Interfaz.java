@@ -56,8 +56,7 @@ public class Saludar_Interfaz extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 51));
-        setUndecorated(true);
-        setAlwaysOnTop(true);
+
         jPanel1.setBackground(new java.awt.Color(0, 102, 51));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N

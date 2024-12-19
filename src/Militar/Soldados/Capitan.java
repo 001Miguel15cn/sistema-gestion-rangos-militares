@@ -39,9 +39,17 @@ public class Capitan extends Soldado implements OperacionesMilitares {
 
     // Método sobrescrito para patrullaje
     @Override
-    public String patrullar() {
-        System.out.println("El capitan saca unos binoculares y reconoce el terreno.");
-        return "El capitan saca unos binoculares y reconoce el terreno.";
+        public String patrullar(boolean accionar) {
+            String mensaje = "";
+            if (accionar){
+                mensaje = "El capitan"+ super.getNombre() +" saca unos binoculares y reconoce el terreno.";
+            }
+            if (!accionar){
+                mensaje = "El capitan"+ super.getNombre() +"ha dejado de inspecionar el terreno";
+            }
+            return mensaje;
+            
+     
     }
 
     // Método sobrescrito para saludar
@@ -70,12 +78,10 @@ public class Capitan extends Soldado implements OperacionesMilitares {
 
     // Método sobrescrito para regañar
     @Override
-    public String regañado(ArrayList<Soldado> soldados) {
-        System.out.println("El capitan " + getNombre() + " ha sido bajado de rango a teniente debido a su mal desempeño en su labor.");
-        Teniente soldadoBajado = new Teniente(getNombre(), getId());
-        soldados.remove(this);  // Elimina al capitan de la lista
-        soldados.add(soldadoBajado);  // Agrega el nuevo teniente a la lista
+    //retorna un mensaje de regaño
+    public String regañado() {
         return "El capitan " + getNombre() + " ha sido bajado de rango a teniente debido a su mal desempeño en su labor.";
+
     }
 
     // Método para asignar la unidad
@@ -84,10 +90,8 @@ public class Capitan extends Soldado implements OperacionesMilitares {
     }
 
     // Método para realizar la acción del capitán
-    public String realizarAccion() {
-        return rango.realizarAccion();
-        
-        
+    public void realizarAccion() {
+        rango.realizarAccion();
     }
 
     // Implementación de los métodos de la interfaz OperacionesMilitares
@@ -140,8 +144,8 @@ public class Capitan extends Soldado implements OperacionesMilitares {
         }
 
         @Override
-        public String realizarAccion() {
-            return "El Capitán " + getNombre() + " coordina misiones y lidera estrategias.";
+        public void realizarAccion() {
+            System.out.println("El Capitán " + getNombre() + " coordina misiones y lidera estrategias.");
         }
     }
 

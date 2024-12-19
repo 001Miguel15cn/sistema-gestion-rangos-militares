@@ -33,8 +33,7 @@ public class interfaz_crear_soldado extends javax.swing.JFrame {
         SoldadoRaso_radioButton = new javax.swing.JRadioButton();
         Coronel_radioButton = new javax.swing.JRadioButton();
         Teniente_radioButton = new javax.swing.JRadioButton();
-        setUndecorated(true);
-        setAlwaysOnTop(true);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 51));
 
