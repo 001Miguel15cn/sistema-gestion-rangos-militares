@@ -1,7 +1,7 @@
 package Militar.Soldados;
 
 import java.util.ArrayList;
-
+import Militar.misiones.*;
 import Militar.rangos.rango;
 import Operaciones.OperacionesMilitares;
 
@@ -26,13 +26,20 @@ public class Coronel extends Soldado implements OperacionesMilitares {
 
     public String realizarAccion(){
         return rango.realizarAccion();
-        
     }
 
     @Override
-    public String patrullar() {
-        System.out.println("El coronel ordena a sus tropas un reconocimiento del area de combate mientras se toma un tinto en su oficina");
-        return "El coronel ordena a sus tropas un reconocimiento del area de combate mientras se toma un tinto en su oficina";
+        public String patrullar(boolean accionar) {
+            String mensaje = "";
+            if (accionar){
+                mensaje = "El coronel"+ super.getNombre() +" ordena a sus tropas un reconocimiento del area de combate mientras se toma un tinto en su oficina";
+            }
+            if (!accionar){
+                mensaje = "El coronel"+ super.getNombre() +" ha ordenado detener la patrulla.";
+            }
+            return mensaje;
+            
+
     }
 
     @Override
@@ -55,12 +62,8 @@ public class Coronel extends Soldado implements OperacionesMilitares {
     }
 
     @Override
-    public String regañado(ArrayList<Soldado> soldados) {
-        System.out.println("El coronel " + getNombre() + " ha sido bajado de rango a capitan debido a su mal desempeño en su labor");
-        Capitan soldadoBajado = new Capitan(getNombre(), getId());
-        soldados.remove(this);
-        soldados.add(soldadoBajado);
-
+    //retorna un mensaje de regaño
+    public String regañado() {
         return "El coronel " + getNombre() + " ha sido bajado de rango a capitan debido a su mal desempeño en su labor";
     }
 
@@ -108,7 +111,7 @@ public class Coronel extends Soldado implements OperacionesMilitares {
             if (estrategia == "sin estrategia") {
                 return "El Coronel " + getNombre() + " aún no ha establecido una estrategia";
             } else {
-                return "El Coronel " + getNombre() + " está estableciendo la estrategia: " + estrategia;
+                 return "El Coronel " + getNombre() + " está estableciendo la estrategia: " + estrategia;
             }
         }
     }
@@ -121,20 +124,22 @@ public class Coronel extends Soldado implements OperacionesMilitares {
     }
 
     @Override
-    public String asignarMision(String mision) {
+    public String asignarMision(Misiones mision) {
         String misionAsignada = "El Coronel " + getNombre() + " asigna una misión estratégica: " + mision;
         return misionAsignada;
     }
 
     @Override
-    public void reportarEstado() {
-        System.out.println("El " + getRango() + " " + getNombre() + " con código " + getId() + " reporta: ");
-        System.out.println(" -Estrategias y operaciones a nivel regional");
-        System.out.println(" -Informe de inteligencia y análisis de la situación global");
-        System.out.println(" -Estado general de la unidad bajo su mando");
-        System.out.println(" -Gestión de recursos a gran escala");
-        System.out.println(" -Evaluación de objetivos de misión a largo plazo");
-        System.out.println(" -Supervisión de capitanes de unidades grandes");
+    public ArrayList<String> reportarEstado() {
+        ArrayList<String> reporte = new ArrayList<String>();
+        reporte.add("El " + getRango() + " " + getNombre() + " con código " + getId() + " reporta: ");
+        reporte.add(" -Estrategias y operaciones a nivel regional");
+        reporte.add(" -Informe de inteligencia y análisis de la situación global");
+        reporte.add(" -Estado general de la unidad bajo su mando");
+        reporte.add(" -Gestión de recursos a gran escala");
+        reporte.add(" -Evaluación de objetivos de misión a largo plazo");
+        reporte.add(" -Supervisión de capitanes de unidades grandes");
+        return reporte;
     }
 
     @Override
