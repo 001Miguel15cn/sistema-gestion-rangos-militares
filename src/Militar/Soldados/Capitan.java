@@ -1,6 +1,8 @@
 package Militar.Soldados;
 
 import java.util.ArrayList;
+
+import Militar.misiones.Misiones;
 import Militar.rangos.rango;
 import Operaciones.OperacionesMilitares;
 
@@ -39,9 +41,17 @@ public class Capitan extends Soldado implements OperacionesMilitares {
 
     // Método sobrescrito para patrullaje
     @Override
-    public String patrullar() {
-        System.out.println("El capitan saca unos binoculares y reconoce el terreno.");
-        return "El capitan saca unos binoculares y reconoce el terreno.";
+        public String patrullar(boolean accionar) {
+            String mensaje = "";
+            if (accionar){
+                mensaje = "El capitan"+ super.getNombre() +" saca unos binoculares y reconoce el terreno.";
+            }
+            if (!accionar){
+                mensaje = "El capitan"+ super.getNombre() +"ha dejado de inspecionar el terreno";
+            }
+            return mensaje;
+            
+     
     }
 
     // Método sobrescrito para saludar
@@ -70,12 +80,10 @@ public class Capitan extends Soldado implements OperacionesMilitares {
 
     // Método sobrescrito para regañar
     @Override
-    public String regañado(ArrayList<Soldado> soldados) {
-        System.out.println("El capitan " + getNombre() + " ha sido bajado de rango a teniente debido a su mal desempeño en su labor.");
-        Teniente soldadoBajado = new Teniente(getNombre(), getId());
-        soldados.remove(this);  // Elimina al capitan de la lista
-        soldados.add(soldadoBajado);  // Agrega el nuevo teniente a la lista
+    //retorna un mensaje de regaño
+    public String regañado() {
         return "El capitan " + getNombre() + " ha sido bajado de rango a teniente debido a su mal desempeño en su labor.";
+
     }
 
     // Método para asignar la unidad
@@ -85,29 +93,31 @@ public class Capitan extends Soldado implements OperacionesMilitares {
 
     // Método para realizar la acción del capitán
     public String realizarAccion() {
-        return rango.realizarAccion();
-        
-        
+       return rango.realizarAccion();
     }
 
     // Implementación de los métodos de la interfaz OperacionesMilitares
-    @Override
+   /*  @Override
     public String asignarMision(String mision) {
         String misionAsignada = "El Capitán " + getNombre() + " asigna a las tropas la mision tactica: " + mision;
         return misionAsignada;
     }
-
+    */
     @Override
-    public void reportarEstado() {
-        System.out.println("El " + getRango() + " " + getNombre() + " con código " + getId() + " reporta:");
-        System.out.println(" - Informe de tareas diarias");
-        System.out.println(" - Supervisión de tenientes");
-        System.out.println(" - Estado general de la unidad bajo su mando");
-        System.out.println(" - Planificación de misiones a corto plazo");
-        System.out.println(" - Evaluación de riesgos y oportunidades estratégicas");
-        System.out.println(" - Coordinación entre diferentes unidades");
-        System.out.println(" - Condiciones tácticas locales");
+    public ArrayList<String> reportarEstado() {
+        ArrayList<String> reporte = new ArrayList<String>();
+        reporte.add("El " + getRango() + " " + getNombre() + " con código " + getId() + " reporta:");
+        reporte.add(" - Informe de tareas diarias");
+        reporte.add(" - Supervisión de tenientes");
+        reporte.add(" - Estado general de la unidad bajo su mando");
+        reporte.add(" - Planificación de misiones a corto plazo");
+        reporte.add(" - Evaluación de riesgos y oportunidades estratégicas");
+        reporte.add(" - Coordinación entre diferentes unidades");
+        reporte.add(" - Condiciones tácticas locales");
+
+        return reporte;
     }
+
 
     // Clase interna para representar el rango del Capitán
     private class Capitan_rango extends rango {
@@ -153,5 +163,10 @@ public class Capitan extends Soldado implements OperacionesMilitares {
 
     public static void remove(){
         cantidad --;
+    }
+     @Override
+    public String asignarMision(Misiones mision) {
+        String misionAsignada = "El Capitán " + getNombre() + " asigna a las tropas la mision tactica: " + mision;
+        return misionAsignada;
     }
 }
