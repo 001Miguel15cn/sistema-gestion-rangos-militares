@@ -1,9 +1,10 @@
 package Militar.Soldados;
 
 import java.util.ArrayList;
+
+import Militar.misiones.Misiones;
 import Militar.rangos.rango;
 import Operaciones.OperacionesMilitares;
-import Militar.misiones.*;
 
 public class Capitan extends Soldado implements OperacionesMilitares {
     private int soldadosBajoMando;
@@ -92,16 +93,16 @@ public class Capitan extends Soldado implements OperacionesMilitares {
 
     // Método para realizar la acción del capitán
     public String realizarAccion() {
-        return rango.realizarAccion();
+       return rango.realizarAccion();
     }
 
     // Implementación de los métodos de la interfaz OperacionesMilitares
-    @Override
-    public String asignarMision(Misiones mision) {
+   /*  @Override
+    public String asignarMision(String mision) {
         String misionAsignada = "El Capitán " + getNombre() + " asigna a las tropas la mision tactica: " + mision;
         return misionAsignada;
     }
-
+    */
     @Override
     public ArrayList<String> reportarEstado() {
         ArrayList<String> reporte = new ArrayList<String>();
@@ -113,8 +114,10 @@ public class Capitan extends Soldado implements OperacionesMilitares {
         reporte.add(" - Evaluación de riesgos y oportunidades estratégicas");
         reporte.add(" - Coordinación entre diferentes unidades");
         reporte.add(" - Condiciones tácticas locales");
+
         return reporte;
     }
+
 
     // Clase interna para representar el rango del Capitán
     private class Capitan_rango extends rango {
@@ -160,5 +163,10 @@ public class Capitan extends Soldado implements OperacionesMilitares {
 
     public static void remove(){
         cantidad --;
+    }
+     @Override
+    public String asignarMision(Misiones mision) {
+        String misionAsignada = "El Capitán " + getNombre() + " asigna a las tropas la mision tactica: " + mision;
+        return misionAsignada;
     }
 }
