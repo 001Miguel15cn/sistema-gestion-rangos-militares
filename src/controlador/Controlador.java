@@ -22,7 +22,10 @@ public class Controlador implements ActionListener{
     ArrayList<Accion_modificar> accionMOdificar = new ArrayList<Accion_modificar>();
 
 
-
+    public void setTipo_informacion(Mostrar_tipo_informacion informacion){
+        this.tipo_informacion = informacion; 
+    }
+    
     public Operacion getOperacion() {
         return operacion;
     }
@@ -52,7 +55,7 @@ public class Controlador implements ActionListener{
        }
 
     public void inicializacion(){
-        vista.inializar(this);
+        vista.inicializar(this);
     }
 
     public Tipo_soldado getRango() {

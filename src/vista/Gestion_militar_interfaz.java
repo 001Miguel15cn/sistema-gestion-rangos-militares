@@ -27,5 +27,5 @@ public interface Gestion_militar_interfaz {
     void mensajepatrullar(String mensaje);
     void mensajeregaño(String mensaje);
     
-    void inializar(Controlador controlador);
+    void inicializar(Controlador controlador);
 }   

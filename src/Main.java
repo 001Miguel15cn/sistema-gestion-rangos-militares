@@ -13,7 +13,7 @@ public class Main {
 static ArrayList<Soldado> soldados = new ArrayList<>();
     public static void main(String[] args) {
          SoldadoRaso soldado1 = new SoldadoRaso("Juan", "S001");
-        SoldadoRaso soldado2 = new SoldadoRaso("Roberto", "S004");
+        SoldadoRaso soldado2 = new SoldadoRaso("Natalia", "S004");
         SoldadoRaso soldado3 = new SoldadoRaso("Albaro", "S005");
         Teniente teniente1 = new Teniente("Camilo", "S002");
         Capitan capitan1 = new Capitan("Miguel", "S003");
