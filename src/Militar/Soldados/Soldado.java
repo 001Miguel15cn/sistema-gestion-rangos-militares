@@ -2,6 +2,8 @@ package Militar.Soldados;
 
 import java.util.ArrayList;
 
+import Militar.misiones.Misiones;
+
 public class Soldado {
       
     private String nombre;
@@ -53,21 +55,25 @@ public class Soldado {
         return "Información del Soldado: " + this.toString();
     }
 
-    public String patrullar() {
-        System.out.println("El soldado " + nombre + " está patrullando.");
-        return "El soldado " + nombre + " está patrullando.";
+    public String patrullar(boolean accionar) {
+        String mensaje = "";
+        if (accionar){
+            mensaje = "El soldado " + nombre + " está patrullando.";
+        }
+        if (!accionar){
+            mensaje = "El soldado " + nombre + " ha detenido su patrulla.";
+        }
+        return mensaje;
+        
     }
+       
 
     public String saludar() {
         return "El soldado " + nombre + " saluda.";
     }
 
-    public String regañado(ArrayList<Soldado> soldados) {
-        System.out.println("El soldado " + nombre + " está siendo regañado.");
+    public String regañado() {
         return "El soldado " + nombre + " está siendo regañado.";
-    }
-    public String realizarAccion() {
-        return "El soldado " + nombre + " está cumpliendo órdenes.";
     }
 
     @Override
@@ -75,7 +81,4 @@ public class Soldado {
         return "Soldado [Nombre=" + nombre + ", ID=" + id + ", Rango=" + rango + "]";
     }
     
-    public String asignarMision(String mision){
-        return mision;
-    }
 }
