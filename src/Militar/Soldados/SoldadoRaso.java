@@ -2,8 +2,10 @@ package Militar.Soldados;
 
 import java.util.ArrayList;
 
+import Militar.misiones.Misiones;
 import Militar.rangos.rango;
 import Operaciones.OperacionesMilitares;
+import Militar.misiones.Misiones;
 
 public class SoldadoRaso extends Soldado implements OperacionesMilitares{
     SoldadoRaso_rango rango = new SoldadoRaso_rango(); 
@@ -33,11 +35,16 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares{
         }
 
     @Override
-    public String patrullar() {
-        // Imprime la forma de patrullar del soldado raso
-        System.out.println("El soldado raso toma su rifle y se lanza al campo de batalla a realizar un reconocimiento");
-        return "El soldado raso toma su rifle y se lanza al campo de batalla a realizar un reconocimiento";
-        
+        public String patrullar(boolean accionar) {
+            String mensaje = "";
+            if (accionar){
+                mensaje = "El soldado raso" + super.getNombre() +" toma su rifle y se lanza al campo de batalla a realizar un reconocimiento";
+            }
+            if (!accionar){
+                mensaje = "El soldado raso " + super.getNombre() + " ha detenido su patrulla.";
+            }
+            return mensaje;
+    
     }
 
     @Override
@@ -64,11 +71,9 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares{
     }
 
     @Override
-    public String regañado(ArrayList<Soldado> soldados) {
-            // El soldado razo sera expulsado directamente ya que no puede bajar más de rango
-            System.out.println("El soldado raso " + getNombre() + " ha sido expulsado debido a su mal desempeño en su labor");
-            soldados.remove(this); // Es eliminado de la lista
-            return "El soldado raso " + getNombre() + " ha sido expulsado debido a su mal desempeño en su labor";
+    //retorna un mensaje de expulsion
+    public String regañado() {
+        return "El soldado raso " + getNombre() + " ha sido expulsado debido a su mal desempeño en su labor";
     }
 
     private class SoldadoRaso_rango extends rango{
@@ -105,12 +110,17 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares{
 
         @Override
         public String realizarAccion() {
-            return "El soldado" + getNombre() + " con código " + getId() + " está cumpliendo órdenes con determinación.";
+          return "El soldado" + getNombre() + " con código " + getId() + " está cumpliendo órdenes con determinación.";
         }
-
        
     }
-
+    /* 
+    @Override
+    public String asignarMision(Misiones mision){
+        return "el soldado Raso ha recibido la mision de: " + mision;
+    }
+    */
+    
     @Override
     public String mostrarInformacion(){
          //System.out.println("");
@@ -123,28 +133,28 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares{
     }
 
     @Override
-    public String asignarMision(String mision) {
-        String misionAsignada = "El soldado raso " + getNombre() + " ha sido asignado a la mision " + mision;
-        return misionAsignada;
-    }
+    public ArrayList<String> reportarEstado() {
+        ArrayList<String> reporte = new ArrayList<String>();
+        
+        reporte.add("El " + getRango() + " " + getNombre() + " con código " + getId() + " reporta: ");
+        reporte.add(" -Estado de tarea asignada");
+        reporte.add(" -condiciones del entorno");
+        reporte.add(" -necesidad de suministros");
+        reporte.add(" -observaciones");
+        reporte.add(" -proximidad del enemigo");
 
-    @Override
-    public void reportarEstado() {
-        System.out.println("");
-        System.out.println("El " + getRango() + " " + getNombre() + " con código " + getId() + " reporta: ");
-        System.out.println("");
-        System.out.println(" -Estado de tarea asignada");
-        System.out.println("");
-        System.out.println(" -condiciones del entorno");
-        System.out.println("");
-        System.out.println(" -necesidad de suministros");
-        System.out.println("");
-        System.out.println(" -observaciones");
-        System.out.println("");
-        System.out.println(" -proximidad del enemigo");
+        return reporte;
     }
     
     public static void remove(){
         cantidad --;
     }
+
+
+
+    @Override
+    public String asignarMision(Misiones mision){
+        return "el soldado Raso ha recibido la mision de: " + mision;
+    }
+  
 }
