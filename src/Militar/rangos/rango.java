@@ -39,7 +39,7 @@ public abstract class rango {
     }
     
 
-    public abstract void realizarAccion();
+    public abstract String realizarAccion();
 
 
     public String getEstrategia() {

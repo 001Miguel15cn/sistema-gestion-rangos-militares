@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package interfaz_grafica;
+package vista.interfaz_grafica;
 
 import java.awt.List;
 import java.net.CacheRequest;
@@ -10,13 +10,12 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import interfaz_grafica.interfaz_principal;
-
 import Militar.Soldados.Capitan;
 import Militar.Soldados.Coronel;
 import Militar.Soldados.Soldado;
 import Militar.Soldados.SoldadoRaso;
 import Militar.Soldados.Teniente;
+import vista.interfaz_grafica.interfaz_principal;
 
 
 

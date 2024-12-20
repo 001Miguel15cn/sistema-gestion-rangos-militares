@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package interfaz_grafica;
+package vista.interfaz_grafica;
 
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -612,6 +612,8 @@ public class interfaz_principal extends javax.swing.JFrame {
                 for(Soldado i:listaSoldados1){
                     String idDelSoldado = i.getId();
                     if(idDelSoldado.equals(idSoldado)){
+                        //esta linea retorna error con los nueos cambios, 
+                        //para las misiones es necesario añadir un jcombobox
           JOptionPane.showMessageDialog(this, i.asignarMision(mision), "Mision asignada al militar buscado", JOptionPane.INFORMATION_MESSAGE);
                     }
                  }

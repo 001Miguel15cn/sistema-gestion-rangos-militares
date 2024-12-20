@@ -2,6 +2,7 @@ package vista;
 
 import java.util.ArrayList;
 
+import Militar.misiones.Misiones;
 import controlador.Accion_rango;
 import controlador.Controlador;
 import controlador.Tipo_soldado;
@@ -14,9 +15,9 @@ public class Gestion_militar_terminal implements Gestion_militar_interfaz{
     String Unidad="";
     int SoldadosBajoMando=0;
     String Estregia="";
-    String Mision="";
+    Misiones Mision;
     Tipo_soldado tipo_soldado;
-    
+
     @Override
     public String getID() {
         // TODO Auto-generated method stub
@@ -43,7 +44,7 @@ public class Gestion_militar_terminal implements Gestion_militar_interfaz{
         throw new UnsupportedOperationException("Unimplemented method 'getEstregia'");
     }
     @Override
-    public String getMision() {
+    public Misiones getMision() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getMision'");
     }
@@ -66,6 +67,46 @@ public class Gestion_militar_terminal implements Gestion_militar_interfaz{
     public void inializar(Controlador controlador) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'inializar'");
+    }
+    @Override
+    public void mensajeMision(String misionmensaje) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mensajeMision'");
+    }
+    @Override
+    public void mensajeRealizaraccion(String accion) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mensajeRealizaraccion'");
+    }
+    @Override
+    public void mensajesaludar(String mensaje) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mensajesaludar'");
+    }
+    @Override
+    public void mensajeregaño(String mensaje) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mensajeregaño'");
+    }
+    @Override
+    public ArrayList<String> getReporte() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getReporte'");
+    }
+    @Override
+    public void mensajepatrullar(String mensaje) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mensajepatrullar'");
+    }
+    @Override
+    public void Cantidadesoldados(ArrayList<Integer> cantidades) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'Cantidadesoldados'");
+    }
+    @Override
+    public void Mostrar_reporte(ArrayList<String> repote) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'Mostrar_reporte'");
     }
     
 }

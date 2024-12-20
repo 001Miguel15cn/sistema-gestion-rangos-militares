@@ -399,6 +399,47 @@ public class Modelo_gestion_militar {
         return reporte; 
     }
 
+    public ArrayList<Integer> Optener_cantidades(ArrayList<Soldado> soldados){
+        ArrayList<Integer> cantidades = new ArrayList<Integer>();
+        int soldadosRasos = 0;
+        int tenientes = 0;
+        int capitanes = 0;
+        int coroneles = 0;
+
+        for (Soldado soldado : soldados) {
+                { if (soldado instanceof SoldadoRaso)
+                    soldadosRasos +=1;
+                }
+                if (soldado instanceof Teniente) {
+                    tenientes +=1;
+                }
+                if (soldado instanceof Capitan) {
+                    capitanes +=1;
+                }
+            
+                if (soldado instanceof Coronel) {
+                    coroneles +=1;
+                }
+        }
+        cantidades.add(soldadosRasos); // indice 0
+        cantidades.add(tenientes);// indice 1
+        cantidades.add(capitanes);// indice 2
+        cantidades.add(coroneles);// indice 3
+    
+
+        return cantidades;
+    }
+    //recibe la lista de mensajes de reporte y los reportes ingresados por vista
+    public  ArrayList<String> unir_reportes(ArrayList<String> lista_mensajes, ArrayList<String> lista_reportes){
+        ArrayList<String> reporte = new ArrayList<String>();
+        for (int i = 0; i < lista_reportes.size(); i++) {
+            String Unir_reporte = lista_mensajes.get(i) + ": " + lista_reportes.get(i);
+            reporte.add(Unir_reporte);
+        }
+        return reporte;
+    }
+
+
 }
     
 

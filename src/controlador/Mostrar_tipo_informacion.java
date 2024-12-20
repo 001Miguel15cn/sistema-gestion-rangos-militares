@@ -1,5 +1,5 @@
 package controlador;
 
 public enum Mostrar_tipo_informacion {
-    RANGO,ID,TODO
+    POR_RANGO,POR_ID,TODO
 }

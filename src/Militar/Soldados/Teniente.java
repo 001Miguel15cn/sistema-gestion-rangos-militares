@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 import Militar.rangos.rango;
 import Operaciones.OperacionesMilitares;
+import Militar.misiones.*;
 
 public class Teniente extends Soldado implements OperacionesMilitares{
     Teniente_rango rango = new Teniente_rango();
@@ -21,14 +22,21 @@ public class Teniente extends Soldado implements OperacionesMilitares{
         rango.setUnidad(unidad);
          }
   
-    public void realizarAccion(){
-            rango.realizarAccion();
+    public String realizarAccion(){
+            return rango.realizarAccion();
         }
 
     @Override
-    public void patrullar() {
-        // Imprime la forma de patrullar del teniente
-        System.out.println("El teniente se pone un traje de camuflaje y se adelanta al campo de combate para realizar una operacion especial para reconocer los enemigos en el terreno");
+    public String patrullar(boolean accionar) {
+        String mensaje = "";
+        if (accionar){
+            mensaje = "El teniente" + super.getNombre() + "se pone un traje de camuflaje y se adelanta al campo de combate para realizar una operacion especial para reconocer los enemigos en el terreno";
+        }
+        if (!accionar){
+            mensaje = "El teniente " + super.getNombre() + " ha detenido su patrulla.";
+        }
+        return mensaje;
+
     }
 
     @Override
@@ -55,12 +63,9 @@ public class Teniente extends Soldado implements OperacionesMilitares{
     }
 
     @Override
-    public void regañado(ArrayList<Soldado> soldados) {
-        System.out.println("Ahora el teniente " + getNombre() + " es un soldado raso debido a su mal desempeño en su labor");
-        SoldadoRaso soldadoBajado = new SoldadoRaso(getNombre(), getId());
-        // Se reemplaza el teniente por el nuevo soldado raso en la lista
-        soldados.remove(this);  // Elimina al teniente de la lista
-        soldados.add(soldadoBajado);  // Agrega el nuevo soldado raso a la lista
+    //retorna un mensaje de regaño
+    public String regañado() {
+        return "Ahora el teniente " + getNombre() + " es un soldado raso debido a su mal desempeño en su labor";
     }
 
 
@@ -97,9 +102,8 @@ public class Teniente extends Soldado implements OperacionesMilitares{
         
 
         @Override
-        public void realizarAccion() {
-            System.out.println("");
-            System.out.println("El Teniente" + getNombre() + " con código " + getId() + " coordina a los soldados y supervisa las operaciones.");
+        public String realizarAccion() {
+            return "El Teniente" + getNombre() + " con código " + getId() + " coordina a los soldados y supervisa las operaciones.";
        
     }
 
@@ -117,28 +121,25 @@ public class Teniente extends Soldado implements OperacionesMilitares{
     }
 
     @Override
-    public String asignarMision(String mision) {
+    public String asignarMision(Misiones mision) {
         String misionAsignada = "El teniente " + getNombre() + " ha sido asignado a la mision " + mision;
         return misionAsignada;
     }
 
     @Override
-    public void reportarEstado() {
-        System.out.println("");
-        System.out.println("El " + getRango() + " " + getNombre() + " con código " + getId() + " reporta: ");
-        System.out.println("");
-        System.out.println(" -informe de tareas diarias");
-        System.out.println("");
-        System.out.println(" -condiciones del entorno");
-        System.out.println("");
-        System.out.println(" -supervision de Soldados Rasos");
-        System.out.println("");
-        System.out.println(" -observaciones");
-        System.out.println("");
-        System.out.println(" -Condiciones tácticas locales");
-        System.out.println("");
-        System.out.println(" -Necesidad de refuerzos o equipo adicional");
+    public ArrayList<String> reportarEstado() {
+        ArrayList<String> reporte = new ArrayList<String>();
+        reporte.add("El " + getRango() + " " + getNombre() + " con código " + getId() + " reporta: ");
+        reporte.add(" -informe de tareas diarias");
+        reporte.add(" -condiciones del entorno");
+        reporte.add(" -supervision de Soldados Rasos");
+        reporte.add(" -observaciones");
+        reporte.add(" -Condiciones tácticas locales");
+        reporte.add(" -Necesidad de refuerzos o equipo adicional");
+        return reporte;
     }
+
+    
 
     public static void remove(){
         cantidad --;

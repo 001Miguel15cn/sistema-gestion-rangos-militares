@@ -3,6 +3,7 @@ package Militar.Soldados;
 import java.util.ArrayList;
 import Militar.rangos.rango;
 import Operaciones.OperacionesMilitares;
+import Militar.misiones.*;
 
 public class Capitan extends Soldado implements OperacionesMilitares {
     private int soldadosBajoMando;
@@ -90,27 +91,29 @@ public class Capitan extends Soldado implements OperacionesMilitares {
     }
 
     // Método para realizar la acción del capitán
-    public void realizarAccion() {
-        rango.realizarAccion();
+    public String realizarAccion() {
+        return rango.realizarAccion();
     }
 
     // Implementación de los métodos de la interfaz OperacionesMilitares
     @Override
-    public String asignarMision(String mision) {
+    public String asignarMision(Misiones mision) {
         String misionAsignada = "El Capitán " + getNombre() + " asigna a las tropas la mision tactica: " + mision;
         return misionAsignada;
     }
 
     @Override
-    public void reportarEstado() {
-        System.out.println("El " + getRango() + " " + getNombre() + " con código " + getId() + " reporta:");
-        System.out.println(" - Informe de tareas diarias");
-        System.out.println(" - Supervisión de tenientes");
-        System.out.println(" - Estado general de la unidad bajo su mando");
-        System.out.println(" - Planificación de misiones a corto plazo");
-        System.out.println(" - Evaluación de riesgos y oportunidades estratégicas");
-        System.out.println(" - Coordinación entre diferentes unidades");
-        System.out.println(" - Condiciones tácticas locales");
+    public ArrayList<String> reportarEstado() {
+        ArrayList<String> reporte = new ArrayList<String>();
+        reporte.add("El " + getRango() + " " + getNombre() + " con código " + getId() + " reporta:");
+        reporte.add(" - Informe de tareas diarias");
+        reporte.add(" - Supervisión de tenientes");
+        reporte.add(" - Estado general de la unidad bajo su mando");
+        reporte.add(" - Planificación de misiones a corto plazo");
+        reporte.add(" - Evaluación de riesgos y oportunidades estratégicas");
+        reporte.add(" - Coordinación entre diferentes unidades");
+        reporte.add(" - Condiciones tácticas locales");
+        return reporte;
     }
 
     // Clase interna para representar el rango del Capitán
@@ -144,8 +147,8 @@ public class Capitan extends Soldado implements OperacionesMilitares {
         }
 
         @Override
-        public void realizarAccion() {
-            System.out.println("El Capitán " + getNombre() + " coordina misiones y lidera estrategias.");
+        public String realizarAccion() {
+            return "El Capitán " + getNombre() + " coordina misiones y lidera estrategias.";
         }
     }
 

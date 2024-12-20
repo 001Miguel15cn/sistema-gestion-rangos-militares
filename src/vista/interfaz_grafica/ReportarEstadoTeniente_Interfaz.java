@@ -1,4 +1,4 @@
-package interfaz_grafica;
+package vista.interfaz_grafica;
 
 import javax.swing.JOptionPane;
 

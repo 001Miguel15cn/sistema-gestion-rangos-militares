@@ -3,11 +3,11 @@ import Militar.Soldados.Teniente;
 import Militar.Soldados.Capitan;
 import Militar.Soldados.Coronel;
 import Militar.Soldados.Soldado;
+import modelo.*;
+import vista.interfaz_grafica.interfaz_principal;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import interfaz_grafica.interfaz_principal;
 public class Main {
     static ArrayList<Soldado> soldados = new ArrayList<>();
     public static void main(String[] args) {
