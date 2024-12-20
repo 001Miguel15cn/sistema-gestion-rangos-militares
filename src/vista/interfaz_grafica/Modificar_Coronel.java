@@ -7,6 +7,8 @@ package vista.interfaz_grafica;
 import java.util.ArrayList;
 
 import Militar.Soldados.Soldado;
+import vista.interfaz_grafica.Modificar_Coronel;
+import vista.interfaz_grafica.interfaz_principal;
 
 /**
  *
@@ -46,7 +48,8 @@ public class Modificar_Coronel extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
+        setUndecorated(true);
+        setAlwaysOnTop(true);
         menu_panel.setBackground(new java.awt.Color(0, 102, 51));
         menu_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -71,7 +74,7 @@ public class Modificar_Coronel extends javax.swing.JFrame {
         boton_volver.setText("volver");
         boton_volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton_volverActionPerformed(evt);
+                Boton_volverActionPerformed(evt);
             }
         });
         menu_panel.add(boton_volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 273, -1, 30));
@@ -152,23 +155,22 @@ public class Modificar_Coronel extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_bajarActionPerformed
 
     private void entrada_estrategiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrada_estrategiaActionPerformed
-        /*codigo aqui */
+
+        // TODO add your handling code here:
     }//GEN-LAST:event_entrada_estrategiaActionPerformed
 
     private void boton_guardar_cambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_guardar_cambiosActionPerformed
-        /*codigo aqui */
+        // TODO add your handling code here:
     }//GEN-LAST:event_boton_guardar_cambiosActionPerformed
-
-    private void boton_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_volverActionPerformed
-        /*codigo aqui */
-    }//GEN-LAST:event_boton_volverActionPerformed
+    private void Boton_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_volverActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_Boton_volverActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */

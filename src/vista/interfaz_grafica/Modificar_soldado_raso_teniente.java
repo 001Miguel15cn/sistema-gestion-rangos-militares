@@ -7,6 +7,8 @@ package vista.interfaz_grafica;
 import java.util.ArrayList;
 
 import Militar.Soldados.Soldado;
+import vista.interfaz_grafica.Modificar_soldado_raso_teniente;
+import vista.interfaz_grafica.interfaz_principal;
 
 /**
  *
@@ -105,7 +107,8 @@ public class Modificar_soldado_raso_teniente extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("nombre");
         Panel_menu.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 205, 43));
-
+        setUndecorated(true);
+        setAlwaysOnTop(true);
         entrada_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 entrada_nombreActionPerformed(evt);

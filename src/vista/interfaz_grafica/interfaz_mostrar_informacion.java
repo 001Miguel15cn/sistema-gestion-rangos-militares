@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 import Militar.Soldados.Soldado;
 import Militar.Soldados.SoldadoRaso;
+import vista.interfaz_grafica.interfaz_mostrar_informacion;
+import vista.interfaz_grafica.interfaz_principal;
 
 /**
  *
@@ -48,7 +50,8 @@ public class interfaz_mostrar_informacion extends javax.swing.JFrame {
         Coronel_radioButton = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
+        setUndecorated(true);
+        setAlwaysOnTop(true);
         Panel_menu.setBackground(new java.awt.Color(0, 102, 51));
         Panel_menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

@@ -1,16 +1,16 @@
 package controlador;
-import modelo.Modelo_gestion_militar;
-import vista.Gestion_militar_interfaz;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import Militar.Soldados.Soldado;
 import Militar.misiones.Misiones;
+import modelo.modelo_gestion_militar;
+import vista.Gestion_militar_interfaz;
 
 public class Controlador implements ActionListener{
     ArrayList<String> lista = new ArrayList<String>();
-    Modelo_gestion_militar modelo;
+    modelo_gestion_militar modelo;
     Gestion_militar_interfaz vista;
     Accion_rango accion;
     Tipo_soldado rango;
@@ -38,7 +38,7 @@ public class Controlador implements ActionListener{
     }
 
 
-    public Controlador(Modelo_gestion_militar modelo, Gestion_militar_interfaz vista){
+    public Controlador(modelo_gestion_militar modelo, Gestion_militar_interfaz vista){
         this.modelo = modelo;
         this.vista = vista;
     }
@@ -51,6 +51,9 @@ public class Controlador implements ActionListener{
         accionMOdificar.clear();
        }
 
+    public void inicializacion(){
+        vista.inializar(this);
+    }
 
     public Tipo_soldado getRango() {
         return rango;
@@ -149,7 +152,7 @@ public class Controlador implements ActionListener{
             Soldado soldado6 = modelo.obtener_soldado(vista.getID());
             ArrayList<String> lista_mensajes = modelo.reporte_de_estado(soldado6);
             ArrayList<String> lista_reportes = vista.getReporte();
-            vista.Mostrar_reporte(modelo.unir_reportes(lista_mensajes,lista_reportes));
+            //vista.Mostrar_reporte(modelo.unir_reportes(lista_mensajes,lista_reportes));
             break;
         case PATRULLAR:
             Soldado soldado3 = modelo.obtener_soldado(vista.getID());
@@ -177,7 +180,7 @@ public class Controlador implements ActionListener{
         // y mostrar la cantidad de soldados por terminal
         case OBTENER_CANTIDADES:
            ArrayList<Soldado> cantidad = modelo.getLista_soldados();
-           vista.Cantidadesoldados(modelo.Optener_cantidades(cantidad));
+           //vista.Cantidadesoldados(modelo.Optener_cantidades(cantidad));
             break;
         default:
             break;

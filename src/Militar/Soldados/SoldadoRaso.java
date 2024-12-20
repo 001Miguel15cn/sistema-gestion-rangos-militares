@@ -149,5 +149,12 @@ public class SoldadoRaso extends Soldado implements OperacionesMilitares{
     public static void remove(){
         cantidad --;
     }
+
+
+
+    @Override
+    public String asignarMision(Misiones mision){
+        return "el soldado Raso ha recibido la mision de: " + mision;
+    }
   
 }

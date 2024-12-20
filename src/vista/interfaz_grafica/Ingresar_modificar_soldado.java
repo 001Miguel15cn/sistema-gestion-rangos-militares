@@ -5,6 +5,8 @@ import javax.swing.JOptionPane;
 import Militar.Soldados.Soldado;
 import Militar.Soldados.SoldadoRaso;
 import Militar.Soldados.Teniente;
+import vista.interfaz_grafica.Ingresar_modificar_soldado;
+import vista.interfaz_grafica.interfaz_principal;
 import Militar.Soldados.Capitan;
 import Militar.Soldados.Coronel;
 
@@ -42,7 +44,8 @@ public class Ingresar_modificar_soldado extends javax.swing.JFrame {
         boton_modificar_atributo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
+        setUndecorated(true);
+        setAlwaysOnTop(true);
         panel_menu.setBackground(new java.awt.Color(0, 102, 51));
         panel_menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

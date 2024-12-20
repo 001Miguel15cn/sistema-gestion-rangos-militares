@@ -614,7 +614,7 @@ public class interfaz_principal extends javax.swing.JFrame {
                     if(idDelSoldado.equals(idSoldado)){
                         //esta linea retorna error con los nueos cambios, 
                         //para las misiones es necesario añadir un jcombobox
-          JOptionPane.showMessageDialog(this, i.asignarMision(mision), "Mision asignada al militar buscado", JOptionPane.INFORMATION_MESSAGE);
+        //  JOptionPane.showMessageDialog(this, i.asignarMision(mision), "Mision asignada al militar buscado", JOptionPane.INFORMATION_MESSAGE);
                     }
                  }
         }

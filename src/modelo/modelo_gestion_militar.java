@@ -12,7 +12,7 @@ import Militar.misiones.Misiones;
 import controlador.Controlador;
 import controlador.Tipo_soldado;
 
-public class Modelo_gestion_militar {
+public class modelo_gestion_militar {
     private String mayorID = "S000";
     private ArrayList<Soldado> lista_soldados = new ArrayList<Soldado>();
     private ArrayList<Soldado> lista_soldados_defecto = new ArrayList<Soldado>();

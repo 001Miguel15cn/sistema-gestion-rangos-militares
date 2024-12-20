@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 import Militar.Soldados.Soldado;
 import Militar.Soldados.SoldadoRaso;
 import Militar.Soldados.Teniente;
+import vista.interfaz_grafica.interfaz_principal;
 import Militar.Soldados.Capitan;
 import Militar.Soldados.Coronel;
 import java.util.ArrayList;
@@ -33,7 +34,8 @@ public class interfaz_crear_soldado extends javax.swing.JFrame {
         SoldadoRaso_radioButton = new javax.swing.JRadioButton();
         Coronel_radioButton = new javax.swing.JRadioButton();
         Teniente_radioButton = new javax.swing.JRadioButton();
-
+        setUndecorated(true);
+        setAlwaysOnTop(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 51));
 
