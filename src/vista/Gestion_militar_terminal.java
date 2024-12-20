@@ -5,7 +5,7 @@ import controlador.Accion_rango;
 import controlador.Controlador;
 import controlador.Mostrar_tipo_informacion;
 import controlador.Operacion;
-import controlador.Tipo_soldado;
+import controlador.Tipo_soldado;  // Agregado para evitar errores
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -77,7 +77,7 @@ public class Gestion_militar_terminal implements Gestion_militar_interfaz {
                     controlador.setOperacion(Operacion.ASIGNAR_MISION);
                     break;
                 case "9":
-                    solicitarID();
+                    reportarEstado();  // Llamar al método para reportar el estado
                     controlador.setOperacion(Operacion.REPORTAR_ESTADO);
                     break;
                 case "10":
@@ -258,6 +258,29 @@ public class Gestion_militar_terminal implements Gestion_militar_interfaz {
         if (tipo_soldado == Tipo_soldado.Capitan) {
             System.out.print("Ingrese el número de soldados bajo su mando: ");
             soldadosBajoMando = scanner.nextInt();
+        }
+
+        // Almacenar el estado del soldado en la lista
+        String estado = "Estado del soldado: " + nombreSoldado + ", Unidad: " + unidad + ", Estrategia: " + estrategia;
+        lista.add("ID: " + id + " - " + estado);  // Almacenar el estado del soldado en la lista
+    }
+
+    // Método para reportar el estado del soldado
+    public void reportarEstado() {
+        System.out.print("Dame el ID del soldado para reportar su estado: ");
+        String id = scanner.next();  // Obtener el ID del soldado
+        
+        // Buscar el estado en la lista usando el ID
+        boolean encontrado = false;
+        for (String entrada : lista) {
+            if (entrada.contains("ID: " + id)) {
+                System.out.println("Estado del soldado con ID " + id + ": " + entrada);  // Mostrar el estado
+                encontrado = true;
+                break;
+            }
+        }
+        if (!encontrado) {
+            System.out.println("No se encontró un soldado con ese ID.");
         }
     }
 }
